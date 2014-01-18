@@ -3,8 +3,6 @@ package es.unileon.prg2.treegame.composite;
 import es.unileon.prg2.treegame.handler.Handler;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
-
-
 public abstract class Node implements Target {
 	
 	private Handler id;

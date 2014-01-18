@@ -1,20 +1,24 @@
 package es.unileon.prg2.treegame.composite;
 
 import es.unileon.prg2.treegame.handler.Handler;
+import es.unileon.prg2.treegame.helpers.Weapon;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 public class Extremity extends Node {
-	
+
 	public Extremity(int life, LifeStrategy lifeStrategy) {
 		super(life, lifeStrategy);
 		// TODO Auto-generated constructor stub
 	}
 
-	private Handler id;
-
+	@Override
+	public boolean add(Target target) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 	@Override
-	public int hurt() {
+	public int hurt(Weapon weapon) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -50,12 +54,6 @@ public class Extremity extends Node {
 	}
 
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Handler getId() {
 		// TODO Auto-generated method stub
 		return null;
@@ -74,9 +72,21 @@ public class Extremity extends Node {
 	}
 
 	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public Node search(Handler id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+	@Override
+	public int hurt() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

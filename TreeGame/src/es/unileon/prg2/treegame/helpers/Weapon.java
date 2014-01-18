@@ -33,8 +33,9 @@ public class Weapon {
 	/**
 	 * Establece el poder del arma.
 	 * @param power poder a establecer.
+	 * @throws InvalidPowerValueException si el valor establecido es menor que 0.
 	 */
-	public void setPower(int power){
+	public void setPower(int power) throws InvalidPowerValueException {
 		if(power < 0) throw new InvalidPowerValueException("El valor del poder del arma debe ser siempre superior a 0");
 		this.power = power;
 	}
