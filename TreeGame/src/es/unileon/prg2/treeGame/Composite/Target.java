@@ -1,5 +1,6 @@
-package es.unileon.prg2.treeGame.Composite;
-import es.unileon.prg2.treeGame.Handler.Handler;
+package es.unileon.prg2.treegame.composite;
+import es.unileon.prg2.treegame.handler.Handler;
+import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 
 public interface Target {

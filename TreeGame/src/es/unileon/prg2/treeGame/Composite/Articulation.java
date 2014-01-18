@@ -1,18 +1,24 @@
-package es.unileon.prg2.treeGame.Composite;
+package es.unileon.prg2.treegame.composite;
 
 import java.util.ArrayList;
 
 
-import es.unileon.prg2.treeGame.Handler.Handler;
 
-public abstract class Articulation implements Node{
+
+
+import es.unileon.prg2.treegame.handler.Handler;
+import es.unileon.prg2.treegame.strategy.LifeStrategy;
+
+public abstract class Articulation extends Node{
+
+	public Articulation(int life, LifeStrategy lifeStrategy) {
+		super(life, lifeStrategy);
+		// TODO Auto-generated constructor stub
+	}
 
 	private ArrayList<Node> nodes;
 	
 	
-	public Articulation(Handler id){
-		nodes = new ArrayList<Node>();
-	}
 	@Override
 	public abstract Handler getId();
 		

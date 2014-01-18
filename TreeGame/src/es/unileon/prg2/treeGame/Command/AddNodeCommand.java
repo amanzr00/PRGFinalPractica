@@ -1,7 +1,7 @@
-package es.unileon.prg2.treeGame.Command;
+package es.unileon.prg2.treegame.command;
 
-import es.unileon.prg2.treeGame.Composite.Node;
-import es.unileon.prg2.treeGame.Handler.Handler;
+import es.unileon.prg2.treegame.composite.Node;
+import es.unileon.prg2.treegame.handler.Handler;
 
 public class AddNodeCommand implements Command{
 	private Node newNode;

@@ -1,7 +1,7 @@
-package es.unileon.prg2.treeGame.Composite;
+package es.unileon.prg2.treegame.composite;
 
-import es.unileon.prg2.treeGame.Handler.Handler;
-import es.unileon.prg2.treeGame.Strategy.LifeStrategy;
+import es.unileon.prg2.treegame.handler.Handler;
+import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 
 

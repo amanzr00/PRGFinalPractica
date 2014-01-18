@@ -1,4 +1,4 @@
-package es.unileon.prg2.treeGame.Command;
+package es.unileon.prg2.treegame.command;
 
 
 

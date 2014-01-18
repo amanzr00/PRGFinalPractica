@@ -1,4 +1,4 @@
-package es.unileon.prg2.treeGame.Strategy;
+package es.unileon.prg2.treegame.strategy;
 
 public interface LifeStrategy {
 	
