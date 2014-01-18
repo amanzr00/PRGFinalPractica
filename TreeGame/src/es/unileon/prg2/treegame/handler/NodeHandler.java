@@ -5,11 +5,13 @@ package es.unileon.prg2.treegame.handler;
  * @author Alberto Manzano
  * @version 1.0
  */
-public class NodeHandler implements Handler{
+public class NodeHandler implements Handler {
+	
 	/**
 	 * Identificador en forma de entero.
 	 */
 	private int number;
+	
 	/**
 	 * Contador estático que se incrementa con cada instancia de identificador de nodo.
 	 * Genera identificadores que se incrementan en número de uno en uno.

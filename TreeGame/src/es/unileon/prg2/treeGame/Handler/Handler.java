@@ -19,5 +19,4 @@ public interface Handler {
 	 * @return 0 si son iguales, -1 o + 1 si son lexicográficamente distintos.
 	 */
 	int compareTo (Handler id);
-
 }
