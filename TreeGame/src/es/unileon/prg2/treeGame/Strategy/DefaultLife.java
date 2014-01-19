@@ -3,17 +3,14 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 
 /**
  * Clase que implementa el cálculo normal de vida, obteniendo la diferencia de daño entre nodo y arma.
- * @author Alberto
+ * @author Alberto Manzano.
+ * @author Iván Montes.
+ * @author Pablo Díez.
  *
  */
 public class DefaultLife implements LifeStrategy{
 
-	/**
-	 * Método que dados la vida del nodo y el arma con la que es atacado nos devuelve la vida restante que le queda.
-	 * @param life La vida del nodo 
-	 * @param weapon La potencia del arma con la que se ataca.
-	 * @return La vida resultante del ataque.
-	 */
+	@Override
 	public int calculateLife(int life, Weapon weapon) {
 		if(life < weapon.getPower()){
 			int damage = weapon.getPower() - life;

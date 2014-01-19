@@ -7,6 +7,8 @@ import es.unileon.prg2.treegame.helpers.Weapon;
  * Escudo especial que soporta un determinado número de ataques y resta la mitad del
  * poder del arma.
  * @author Alberto Manzano.
+ * @author Iván Montes.
+ * @author Pablo Diez.
  * @version 1.0
  */
 public class SpecialShield extends Shield {

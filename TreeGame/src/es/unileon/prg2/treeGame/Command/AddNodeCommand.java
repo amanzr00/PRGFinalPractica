@@ -1,6 +1,5 @@
 package es.unileon.prg2.treegame.command;
-//Comentario prueba
-//Hola ivan
+
 import es.unileon.prg2.treegame.composite.Node;
 import es.unileon.prg2.treegame.handler.Handler;
 

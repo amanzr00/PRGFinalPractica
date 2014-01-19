@@ -6,6 +6,8 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 /**
  * Escudo simple que protege con un valod de daño concreto.
  * @author Alberto Manzano
+ * @author Iván Montes
+ * @author Pablo Diez
  * @version 1.0
  */
 public class SimpleShield extends Shield {

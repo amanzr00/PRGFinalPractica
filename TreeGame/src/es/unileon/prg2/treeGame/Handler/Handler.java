@@ -2,7 +2,9 @@ package es.unileon.prg2.treegame.handler;
 
 /**
  * Patrón handler para manejar identificadores del árbol de juego.
- * @author Alberto Manzano
+ * @author Alberto Manzano.
+ * @author Iván Montes.
+ * @author Pablo Díez.
  * @version 1.0
  */
 public interface Handler {

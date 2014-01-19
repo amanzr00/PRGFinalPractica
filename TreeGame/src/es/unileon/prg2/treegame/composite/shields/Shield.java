@@ -9,6 +9,8 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
 /**
  * Escudo genérico que contiene las operaciones principales de dichos escudos.
  * @author Alberto Manzano
+ * @author Iván Montes
+ * @author Pablo Díez
  * @version 1.0
  */
 public abstract class Shield implements Target {
