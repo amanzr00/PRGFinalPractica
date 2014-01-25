@@ -85,6 +85,12 @@ public class Articulation extends Node {
 	@Override
 	public int hurt(Weapon weapon) {
 		for(Node node : nodes){
+			if(node.isAlive()){
+				if(node.hurt(weapon) == 0) break;
+			}
+		}
+		if(weapon.getPower() > 0) setLife(this.lifeStrategy.calculateLife(life, weapon));
+		return weapon.getPower();
 	}
 
 	@Override

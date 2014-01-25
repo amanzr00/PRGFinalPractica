@@ -15,17 +15,11 @@ public class NodeHandler implements Handler {
 	private int number;
 	
 	/**
-	 * Contador estático que se incrementa con cada instancia de identificador de nodo.
-	 * Genera identificadores que se incrementan en número de uno en uno.
+	 * Crea el identificador del nodo de acuerdo con el valor pasado.
+	 * @param id el numero el id pasado.
 	 */
-	private static int staticCounter;
-	
-	/**
-	 * Crea el identificador del nodo de acuerdo con el valor del staticCounter que representa
-	 * un entero al que se le añade una unidad. De esta manera los identificadores son siempre crecientes.
-	 */
-	public NodeHandler() {
-		this.number = staticCounter++;
+	public NodeHandler(int id) {
+		this.number = id;
 	}
 
 	@Override
