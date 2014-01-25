@@ -1,7 +1,6 @@
 package es.unileon.prg2.treegame.composite.shields;
 
 import es.unileon.prg2.treegame.composite.Node;
-import es.unileon.prg2.treegame.composite.Target;
 import es.unileon.prg2.treegame.handler.Handler;
 import es.unileon.prg2.treegame.helpers.Weapon;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
@@ -13,68 +12,74 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
  * @author Pablo Díez
  * @version 1.0
  */
-public abstract class Shield implements Target {
+public abstract class Shield extends Node {
 
 	/**
-	 * El target al que proteje el escudo.
+	 * El nodo al que proteje el escudo.
 	 */
-	private Target target;
+	private Node node;
 	
 	/**
 	 * Constructor del escudo decorator.
-	 * @param target El target al que proteje el escudo.
+	 * @param node El target al que proteje el escudo.
 	 */
-	public Shield(Target target){
-		this.target = target;
+	public Shield(Node node){
+		super(node.getId());
+		this.node = node;
 	}
 	
 	@Override
 	public Handler getId() {
-		return target.getId();
+		return node.getId();
 	}
 
 	@Override
-	public boolean add(Target target) {
-		return this.target.add(target);
+	public boolean add(Node target) {
+		return this.node.add(target);
 	}
 
 	@Override
 	public boolean remove(Node target) {
-		return this.target.remove(target);
+		return this.node.remove(target);
 	}
 
 	@Override
-	public Target search(Handler id) {
-		return this.target.search(id);
+	public Node search(Handler id) {
+		return this.node.search(id);
 	}
 
 	@Override
 	public int hurt(Weapon weapon){
-		return this.target.hurt(weapon);
+		return this.node.hurt(weapon);
 	}
 
 	@Override
 	public int getFinalScore() {
-		return this.target.getFinalScore();
+		return this.node.getFinalScore();
 	}
 
 	@Override
 	public boolean isAlive() {
-		return this.target.isAlive();
+		return this.node.isAlive();
 	}
 
 	@Override
-	public int getLive() {
-		return this.target.getLive();
+	public int getLife() {
+		return this.node.getLife();
 	}
 
 	@Override
 	public void setLife(int life) {
-		this.target.setLife(life);
+		this.node.setLife(life);
 	}
 
 	@Override
 	public void setLifeStrategy(LifeStrategy lifeStrategy) {
-		this.target.setLifeStrategy(lifeStrategy);
+		this.node.setLifeStrategy(lifeStrategy);
+	}
+	
+	@Override
+	public String toString() {
+		return this.node.toString();
 	}
 }

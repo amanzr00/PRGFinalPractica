@@ -1,6 +1,6 @@
 package es.unileon.prg2.treegame.composite.shields;
 
-import es.unileon.prg2.treegame.composite.Target;
+import es.unileon.prg2.treegame.composite.Node;
 import es.unileon.prg2.treegame.helpers.Weapon;
 
 /**
@@ -24,7 +24,7 @@ public class SpecialShield extends Shield {
 	 * @param target El nodo al que protege.
 	 * @param numAttacks El número de ataques soportados por el escudo.
 	 */
-	public SpecialShield(Target target, int numAttacks) {
+	public SpecialShield(Node target, int numAttacks) {
 		super(target);
 		this.numAttacks = numAttacks;
 	}

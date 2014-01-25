@@ -1,6 +1,6 @@
 package es.unileon.prg2.treegame.composite.shields;
 
-import es.unileon.prg2.treegame.composite.Target;
+import es.unileon.prg2.treegame.composite.Node;
 import es.unileon.prg2.treegame.helpers.Weapon;
 
 /**
@@ -21,7 +21,7 @@ public class SimpleShield extends Shield {
 	 * Constructor del escudo simple.
 	 * @param target El elemento al que protege el escudo.
 	 */
-	public SimpleShield(Target target, int resistance) {
+	public SimpleShield(Node target, int resistance) {
 		super(target);
 		this.resistance = resistance;
 	}
