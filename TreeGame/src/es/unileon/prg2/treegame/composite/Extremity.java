@@ -35,45 +35,40 @@ public class Extremity extends Node {
 	}
 	
 	@Override
-	public boolean add(Node target) {
-		// TODO Auto-generated method stub
+	public boolean add(Node node) {
 		return false;
 	}
 	
 	@Override
-	public boolean remove(Node target) {
-		// TODO Auto-generated method stub
+	public boolean remove(Node node) {
 		return false;
 	}
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return getId().toString();
 	}
 	
 	@Override
 	public Node search(Handler id) {
-		// TODO Auto-generated method stub
+		if(getId().compareTo(id) == 0){
+			return this;
+		}
 		return null;
 	}
 	
 	@Override
 	public int hurt(Weapon weapon) {
-		// TODO Auto-generated method stub
-		return 0;
+		setLife(lifeStrategy.calculateLife(this.life, weapon));
+		return weapon.getPower();
 	}
 	
 	@Override
 	public int getFinalScore() {
-		// TODO Auto-generated method stub
+		if(isAlive()){
+			return this.life + 10;
+		}
 		return 0;
-	}
-	
-	@Override
-	public boolean isAlive() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 	
 	@Override

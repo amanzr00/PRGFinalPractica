@@ -50,20 +50,19 @@ public class Articulation extends Node {
 	
 	@Override
 	public boolean add(Node objetive) {
-		
-		if(objetive.equals(Extremity.class.getSimpleName()) && !nodes.contains(objetive)){
-			return nodes.add(objetive);
+		if(objetive == null){
+			throw new IllegalArgumentException("Me tienen que pasar un nodo para añadir.");
 		}
-		return false;
+		return nodes.add(objetive);
+		
 	}
 
 	@Override
 	public boolean remove(Node objetive) {
-		
-		if(objetive.equals(Extremity.class.getSimpleName())){
-			return nodes.remove(objetive);
+		if(objetive == null){
+			throw new IllegalArgumentException("Me tienen que pasar un nodo a eliminar");
 		}
-		return false;
+		return nodes.remove(objetive);
 	}
 
 	@Override
@@ -80,19 +79,23 @@ public class Articulation extends Node {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return getId().toString();
 	}
 
 	@Override
 	public int hurt(Weapon weapon) {
-		// TODO Auto-generated method stub
-		return 0;
+		for(Node node : nodes){
 	}
 
 	@Override
 	public int getFinalScore() {
-		// TODO Auto-generated method stub
+		if(isAlive()){
+			int totalLifeChild = 0;
+			for (Node node : nodes){
+				totalLifeChild = totalLifeChild + node.getFinalScore();
+			}
+			return this.life + 10 + totalLifeChild;
+		}
 		return 0;
 	}
 
