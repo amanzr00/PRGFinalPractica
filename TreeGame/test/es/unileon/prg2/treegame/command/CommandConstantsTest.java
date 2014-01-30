@@ -7,7 +7,7 @@ package es.unileon.prg2.treegame.command;
  * @author Pablo Díez
  * @version 1.0
  */
-public enum CommandConstants {
+public enum CommandConstantsTest {
 	/**
 	 * Comando que cambia de estado.
 	 */

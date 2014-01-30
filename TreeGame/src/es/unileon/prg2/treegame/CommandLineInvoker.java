@@ -3,10 +3,10 @@ package es.unileon.prg2.treegame;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.InvocationTargetException;
 
 import es.unileon.prg2.treegame.command.Command;
 import es.unileon.prg2.treegame.command.CommandConstants;
+import es.unileon.prg2.treegame.command.NextCommand;
 import es.unileon.prg2.treegame.helpers.StateWrapper;
 
 /**
@@ -48,8 +48,8 @@ public class CommandLineInvoker {
 	}
 	
 	/**
-	 * Parseo de comandos usando reflexión.
-	 * @param command el comando.
+	 * Parseo de comandos sin usar reflexión.
+	 * @param command comando.
 	 */
 	private void parseCommand(String command){
 		String[] arguments = command.split("\\s");
@@ -58,20 +58,12 @@ public class CommandLineInvoker {
 			CommandConstants commandConstant = CommandConstants.fromString(commandName);
 			if (commandConstant != null){
 				Command commandInstance = null;
-				Class<? extends Command> instanceClass = commandConstant.getCommandClass();
-				try {
-					switch(commandConstant){
-						case next:
-							commandInstance = instanceClass.getDeclaredConstructor(StateWrapper.class).newInstance(this.state);
-						break;
-					}
-					commandInstance.execute();
-				} catch (InstantiationException | IllegalAccessException
-						| IllegalArgumentException
-						| InvocationTargetException | NoSuchMethodException
-						| SecurityException e) {
-					System.out.println("Comando no valido.");
+				switch(commandConstant){
+					case next:
+						commandInstance = new NextCommand(this.state);
+					break;
 				}
+				if(commandInstance != null)	commandInstance.execute();
 			} else {
 				System.out.println("Comando no valido.");
 			}
@@ -79,29 +71,4 @@ public class CommandLineInvoker {
 			System.out.println("Comando no valido.");
 		}
 	}
-	
-//	/**
-//	 * Parseo de comandos sin usar reflexión.
-//	 * @param command comando.
-//	 */
-//	private void parseCommand(String command){
-//		String[] arguments = command.split("\\s");
-//		if (arguments.length > 0){
-//			String commandName = arguments[0];
-//			CommandConstants commandConstant = CommandConstants.valueOf(commandName);
-//			if (commandConstant != null){
-//				Command commandInstance = null;
-//				switch(commandConstant){
-//					case Next:
-//						commandInstance = new NextCommand(this.state);
-//					break;
-//				}
-//				if(commandInstance != null)	commandInstance.execute();
-//			} else {
-//				System.out.println("Comando no valido.");
-//			}
-//		} else {
-//			System.out.println("Comando no valido.");
-//		}
-//	}
 }

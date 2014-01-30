@@ -1,0 +1,10 @@
+package es.unileon.prg2.treegame.helpers;
+
+/**
+ * @author Alberto Manzano.
+ * @author Ivan Montes.
+ * @author Pablo Díez.
+ * @version 1.0
+ */
+public class WeaponTest {
+}
