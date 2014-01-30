@@ -45,17 +45,17 @@ public abstract class Node {
 	
 	/**
 	 * Agrega un nodo al seleccionado.
-	 * @param target nodo a agregar.
+	 * @param node nodo a agregar.
 	 * @return true si se ha agregado correctamente, en cualquier otro caso, false.
 	 */
-	public abstract boolean add(Node target);
+	public abstract boolean add(Node node);
 	
 	/**
 	 * Elimina un nodo al nodo seleccionado.
-	 * @param id identificador del nodo a eliminar.
+	 * @param node nodo a eliminar.
 	 * @return true si se ha eliminado correctamente, en cualquier otro caso false.
 	 */
-	public abstract boolean remove(Node target);
+	public abstract boolean remove(Node node);
 	
 	/**
 	 * Obtiene la representación numérica del identificador del elemento del
