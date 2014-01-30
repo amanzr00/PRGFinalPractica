@@ -17,14 +17,6 @@ public abstract class Node {
 	 */
 	private Handler id;
 	
-	/**
-	 * Constructor del nodo que permite inicializarlo.
-	 * @param life la vida del nodo.
-	 * @param lifeStrategy la estrategia de cálculo de vida del nodo.
-	 */
-	public Node(){
-		//TODO crear el handler.
-	}
 	
 	/**
 	 * Constructor que no genera el identificador por sí mismo.

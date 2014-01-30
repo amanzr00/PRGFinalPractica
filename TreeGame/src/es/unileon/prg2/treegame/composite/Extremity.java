@@ -28,8 +28,8 @@ public class Extremity extends Node {
 	 * @param life la vida del nodo.
 	 * @param lifeStrategy la estrategia para calcular la vida.
 	 */
-	public Extremity(int life, LifeStrategy lifeStrategy) {
-		super();
+	public Extremity(Handler id, int life, LifeStrategy lifeStrategy) {
+		super(id);
 		this.life = life;
 		this.lifeStrategy = lifeStrategy;
 	}

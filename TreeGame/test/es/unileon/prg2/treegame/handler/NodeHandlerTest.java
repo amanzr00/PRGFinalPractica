@@ -27,4 +27,8 @@ public class NodeHandlerTest {
 		equals(this.number1.toString().compareTo(number3.toString()));
 		
 	}
+	@Test
+	public String toString() {
+		
+	}
 }

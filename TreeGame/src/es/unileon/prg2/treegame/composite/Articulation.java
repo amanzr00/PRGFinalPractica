@@ -40,8 +40,8 @@ public class Articulation extends Node {
 	 * @param life la vida del nodo.
 	 * @param lifeStrategy la estrategia para calcular la vida.
 	 */
-	public Articulation(int life, LifeStrategy lifeStrategy) {
-		super();
+	public Articulation(Handler id,int life, LifeStrategy lifeStrategy) {
+		super(id);
 		this.life = life;
 		this.lifeStrategy = lifeStrategy;
 	}
