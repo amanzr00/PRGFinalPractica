@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<project name="TreeGame" default="all" basedir=".">
+
+	<!-- Conjunto de direcciones de la aplicacion.-->
+	<property name="titulo" value="Tree game"/>
+	
+	<property name="struct" value="es/unileon/prg2/treegame"/>
+	
+	<property name="lib" value="./lib"/>
+	<property name="classes" value="./classes"/>
+	<property name="testclasses" value="${classes}/test"/>
+	<property name="dist" value="./dist"/>
+	<property name="doc" value="./doc"/>
+	<property name="conf" value="./etc"/>
+	
+	<property name="src" value="./src/${struct}"/>
+	<property name="test" value="./test/${struct}"/>
+	
+	<property name="dist.name" value="treegame.jar"/>
+	
+	<property name="paquete" value="es.unileon.prg2.treegame"/>
+	
+	<property name="l4j" value="log4j-1.2.17.jar" />
+	<property name="junit" value="junit-4.10.jar" />
+
+	<!-- Conjunto de paths usados por el target de ejecutar los tests.-->
+	<path id="test.classpath">
+	  <pathelement location="${testclasses}" />
+	  <pathelement location="${classes}" />
+	  <pathelement location = "." />
+	  <pathelement location = "${test}" />
+	  <fileset dir="${lib}">
+		<include name="**/*.jar"/>
+	  </fileset>
+	</path>
+
+	<!-- Elimina todos los directorios y archivos que pueden ser creados por ant-->
+	<target name="clear">
+		 <delete dir="${classes}"/>
+		 <delete dir="${doc}"/>
+		 <delete dir="./log"/>
+		 <delete file="${conf}/ant.log"/>
+	</target>
+
+	<!-- Compilación del programa -->
+	<target name="compile">
+		<mkdir dir="${classes}"/>
+		<mkdir dir="${conf}"/>
+
+		<javac srcdir="${src}" destdir="${classes}" classpath="${lib}/${l4j}" verbose="true" debug="true"/>
+		<echo message="----CODE COMPILATION SUCCESSFUL----" file="${conf}/ant.log"/>
+
+		<mkdir dir="${testclasses}"/>
+
+		<javac srcdir="${test}" destdir="${testclasses}" classpath="${classes}:${lib}/${l4j}:${lib}/${junit}" verbose="true" debug="true"/>
+		<echo message="----TEST COMPILATION SUCCESSFUL----" file="${conf}/ant.log"/>
+	</target>
+
+	<!-- Realiza la documentacion de la aplicación de la tiendaonline.-->
+	<target name="doc">
+		<mkdir dir="${doc}"/>
+
+		<javadoc sourcepath="./src" classpath="${lib}/${l4j}" destdir="${doc}" packagenames="${paquete}.*" verbose="true" author="true" access="private" splitindex="true" 
+		version="true" windowtitle="${titulo}" doctitle="${titulo}"  linksource="${src}*.java"/>
+		<echo message="----DOC CREATED SUCCESSFULLY----" file="${conf}/ant.log"/>
+	</target>
+
+	<!-- Crea el jar de la aplicación de la tienda online.-->
+	<target name="dist">
+		<mkdir dir="${dist}"/>
+
+		<jar jarfile="${dist}/${dist.name}" basedir="${classes}" compress="true" manifest="${dist}/MANIFEST.MF"/>
+		<echo message="----DIST GENERATED SUCCESSFULLY----" file="${conf}/ant.log"/>
+	</target>
+
+	<!-- Ejecuta la suite de tests de la tienda online.-->
+	<target name = "run-test">
+		<junit fork = "yes" printsummary="false" haltonfailure="true" showoutput="false" filtertrace="true">
+			<test name = "${paquete}.SuiteTests" />
+			<formatter type = "plain" usefile="false" />
+			<classpath refid = "test.classpath" />
+		</junit>
+		<echo message="----TESTS EXECUTED----" file="${conf}/ant.log"/>
+	</target>
+
+	<!-- Realiza el primer modo de ejecucion de la tienda online.-->
+	<target name="run">
+		<java failonerror="true" classname="${paquete}.Main" fork = "true">
+			 <classpath>
+				  <pathelement path = "${classes}"/>
+				  <pathelement path = "${lib}"/>
+				  <pathelement path = "${lib}/${junit}" />
+				  <pathelement path = "${lib}/${l4j}" />
+			 </classpath>
+		</java>
+		<echo message="----RUN FINISHED----" file="${conf}/ant.log"/>
+	</target>
+	
+	<!-- Realiza todo los pasos necesarios para que se ejecute tanto compilar, los tests y la documentacion.-->
+	<target name="all" depends="compile, doc, run-test, run">
+	</target>
+		
+</project>
+	
