@@ -26,7 +26,7 @@ public class SpecialShieldTest {
 	@Before
 	public void setUp() throws Exception {
 		
-		node1 = new Articulation(100, lifeStrategy );
+		//node1 = new Articulation(100, lifeStrategy );
 		numAttacks = 3;
 		
 		weapon1 = new Weapon (8);

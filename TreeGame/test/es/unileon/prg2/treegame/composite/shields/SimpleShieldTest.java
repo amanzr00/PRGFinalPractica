@@ -27,10 +27,10 @@ public class SimpleShieldTest {
 	@Before
 	public void setUp() throws Exception {
 		
-		node1 = new Articulation(100, lifeStrategy );
+		//node1 = new Articulation(100, lifeStrategy );
 		resistance = 10;
 		
-		node2 = new Extremity(50, lifeStrategy );
+		//node2 = new Extremity(50, lifeStrategy );
 		
 		weapon1 = new Weapon (5);
 		

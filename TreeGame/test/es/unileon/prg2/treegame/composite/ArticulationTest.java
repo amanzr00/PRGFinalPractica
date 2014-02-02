@@ -23,11 +23,11 @@ import es.unileon.prg2.treegame.strategy.ThresholdLife;
 public class ArticulationTest {
 	
 	private ArrayList<Node> nodes;
-	private Weapon weapon1, weapon2, weapon3;
+	private Weapon weapon1, weapon2, weapon3, weapon4;
 	//private Extremity node1, node2;
 	private Handler id1, id2, id3, id4, id5, id6, id7, id8, id9;
 	private Node node1, node2, node3, node4, node5, node6, node7, node8, node9;
-	private LifeStrategy strategy1, strategy2;
+	private LifeStrategy strategy1, strategy2, strategy3;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -43,8 +43,10 @@ public class ArticulationTest {
 		this.weapon1 = new Weapon (10);
 		this.weapon2 = new Weapon (6);
 		this.weapon3 = new Weapon (2);
+		this.weapon4 = new Weapon (4);
 		this.strategy1 = new DefaultLife();
 		this.strategy2 = new ThresholdLife(3);
+		this.strategy3 = new ThresholdLife(5);
 		//Node1
 			//Node2
 			//Node3
@@ -85,7 +87,7 @@ public class ArticulationTest {
 	@Test
 	public void TestSearch (){
 	
-		assertTrue(this.node1)
+		assertNotNull(this.node1.search(id1));
 		assertNull(this.node5.search(id5));
 		
 
@@ -93,50 +95,53 @@ public class ArticulationTest {
 	
 	@Test
 	public void TestToString(){
-				
-		//assertEquals(this.root.toString(),"1\nnull\nnull\n");
+		//TODO
+		//assertEquals("15", this.node1.getLife().toString());
 
 	}
 	
 	@Test
 	public void TestHurt(){
 		
-		assertEquals(this.root.hurt(weapon1), 10);
-		assertEquals(this.articulation1.hurt(weapon2), 2);
+		assertEquals(this.node6.hurt(weapon3), 2);
+		assertEquals(this.node3.hurt(weapon1), 0);
+		assertEquals(this.node8.hurt(weapon4), 1);
+		assertEquals(this.node8.hurt(weapon3), 2);
+		
 		
 		
 	}
 	
 	@Test
 	public void TestGetFinalScore(){
-		
-		/*
-		 * Implementar
-		 */
+		//TODO
+	
 		
 	}
 	
 	@Test
 	public void TestGetLife(){
 		
-		assertEquals(this.root.getLife(), 50);
-		assertEquals(this.articulation1.getLife(), 50);
+		assertEquals(this.node1.getLife(), 15);
+		assertEquals(this.node4.getLife(), 4);
+		
 	}
 	
 	@Test
 	public void TestSetLife(int life){
 		
-		this.root.setLife(60);
-		assertEquals(this.root.getLife(), 60);
+		this.node1.setLife(60);
+		assertEquals(this.node1.getLife(), 60);
+		this.node2.setLife(0);
+		assertEquals(this.node2.getLife(),0);
 		
 	}
 	
 	@Test
 	public void TestSetLifeStrategy(LifeStrategy lifeStrategy){
+		//TODO
+		//assertEquals(this.node1.setLifeStrategy(strategy3), 4);
 		
-		/*
-		 * Implementar
-		 */
 		
 	}
 }

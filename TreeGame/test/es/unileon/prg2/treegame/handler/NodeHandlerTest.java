@@ -29,6 +29,7 @@ public class NodeHandlerTest {
 	}
 	@Test
 	public String toString() {
+		return null;
 		
 	}
 }
