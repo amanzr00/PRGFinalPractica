@@ -28,5 +28,5 @@ public class HalfLifeTest {
 		assertEquals(this.halfLife.calculateLife(life3, weapon4), 0);
 		
 	}
-	//PRUEBA
+	//PRUEBA2
 }
