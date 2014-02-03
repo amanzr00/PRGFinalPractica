@@ -1,15 +1,12 @@
 package es.unileon.prg2.treegame.handler;
 
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @author Alberto Manzano.
- * @author Iván Montes.
- * @author Pablo Díez.
- * @version 1.0
- */
 public class NodeHandlerTest {
+
 	private NodeHandler number1, number2, number3;
 	int id, id2;
 	@Before
@@ -17,19 +14,21 @@ public class NodeHandlerTest {
 		id = 1;
 		id2 = 2;
 		number1 = new NodeHandler(id);
-		number2 = new NodeHandler(id);
+		number2 = new NodeHandler(id2);
 		number3 = new NodeHandler(id2);
 	}
 
 	@Test
 	public void testcompareTo() {
-		equals(this.number1.toString().compareTo(number2.toString()));
-		equals(this.number1.toString().compareTo(number3.toString()));
+		assertEquals(this.number1.toString().compareTo(number2.toString()), -1);
+		assertEquals(this.number3.toString().compareTo(number3.toString()), 0);
 		
 	}
 	@Test
-	public String toString() {
-		return null;
+	public void testToString() {
+		assertEquals(this.number1.toString(), "1");
+		assertEquals(this.number2.toString(), "2");
 		
 	}
+
 }

@@ -19,8 +19,8 @@ public class DefaultLife implements LifeStrategy{
 		}else if(life == weapon.getPower()){
 			weapon.setPower(0);
 			life = 0;
-		}else{
-			int damage = life - weapon.getPower();
+		}else {
+			int damage = weapon.getPower();
 			weapon.setPower(0);
 			life = life - damage;
 		}

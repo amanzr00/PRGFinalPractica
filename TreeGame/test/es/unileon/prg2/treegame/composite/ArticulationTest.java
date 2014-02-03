@@ -70,10 +70,13 @@ public class ArticulationTest {
 
 	@Test
 	public void TestAdd (){
-	
-		assertTrue(this.node1.add(new Articulation(id1, 15, strategy2)));
-		assertTrue(this.node2.add(new Articulation(id2, 7, strategy2)));
-		assertFalse(this.node1.add(new Articulation(id1,15, strategy2)));
+		NodeHandler id10 = new NodeHandler(10);
+		Node node10 = new Extremity(id10, 3, strategy1);
+		
+		assertTrue(nodes.add(node10));
+		//assertTrue(node10.add(new Articulation(id1, 15, strategy2)));
+		//assertTrue(this.node2.add(new Articulation(id2, 7, strategy2)));
+		//assertFalse(this.node1.add(new Articulation(id1,15, strategy2)));
 	}
 	
 	@Test
@@ -90,23 +93,20 @@ public class ArticulationTest {
 		assertNotNull(this.node1.search(id1));
 		assertNull(this.node5.search(id5));
 		
-
+		
 	}
 	
 	@Test
 	public void TestToString(){
-		//TODO
-		//assertEquals("15", this.node1.getLife().toString());
+		assertEquals(this.node1.getId().toString(), "1");
 
 	}
 	
 	@Test
 	public void TestHurt(){
 		
-		assertEquals(this.node6.hurt(weapon3), 2);
-		assertEquals(this.node3.hurt(weapon1), 0);
-		assertEquals(this.node8.hurt(weapon4), 1);
-		assertEquals(this.node8.hurt(weapon3), 2);
+		assertEquals(this.node9.hurt(weapon3), 0);
+		assertEquals(this.node8.hurt(weapon2), 3);
 		
 		
 		
@@ -128,7 +128,7 @@ public class ArticulationTest {
 	}
 	
 	@Test
-	public void TestSetLife(int life){
+	public void TestSetLife(){
 		
 		this.node1.setLife(60);
 		assertEquals(this.node1.getLife(), 60);
@@ -138,7 +138,7 @@ public class ArticulationTest {
 	}
 	
 	@Test
-	public void TestSetLifeStrategy(LifeStrategy lifeStrategy){
+	public void TestSetLifeStrategy(){
 		//TODO
 		//assertEquals(this.node1.setLifeStrategy(strategy3), 4);
 		

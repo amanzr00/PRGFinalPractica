@@ -28,4 +28,15 @@ public class WeaponTest {
 		assertEquals(this.weapon4.getPower(), 4);
 		
 	}
+	
+	@Test
+	public void testSetPower(){
+		weapon2.setPower(10);
+		assertEquals(this.weapon2.getPower(), 10);
+		weapon3.setPower(0);
+		assertEquals(this.weapon3.getPower(), 0);
+		//assertTrue(weapon4.setPower(-5), "El valor del poder del arma debe ser siempre superior a 0");
+		
+	}
+	
 }

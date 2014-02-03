@@ -24,10 +24,12 @@ public class HalfLife implements LifeStrategy {
 			weapon.setPower(0);
 		}else if(weapon.getPower()/2 > life){
 			life = life - weapon.getPower()/2;
+			if(life < 0){
+				life = 0;
+			}
 			weapon.setPower(weapon.getPower()/2 - life);
-		}else{
-			weapon.setPower(0);
-			life = 0;
+			
+		
 		}
 		return life;
 	}
