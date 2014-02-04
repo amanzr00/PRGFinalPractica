@@ -5,6 +5,7 @@ package es.unileon.prg2.treegame;
  * @author Alberto Manzano
  * @author Iván Montes
  * @author Pablo Díez
+ * @author Andrea San Ram—n
  * @version 1.0
  */
 public class Main {
