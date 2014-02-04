@@ -6,6 +6,7 @@ package es.unileon.prg2.treegame.strategy;
  * @author Alberto Manzano.
  * @author Ivan Montes.
  * @author Pablo Diez.
+ * @author Andrea San Ramón.
  */
 
 import es.unileon.prg2.treegame.helpers.Weapon;

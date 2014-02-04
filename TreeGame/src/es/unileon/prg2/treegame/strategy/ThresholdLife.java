@@ -7,6 +7,7 @@ import es.unileon.prg2.treegame.helpers.Weapon;
  * @author Alberto Manzano.
  * @author Iván Montes.
  * @author Pablo Díez.
+ * @author Andrea San Ramón.
  * 
  *
  */

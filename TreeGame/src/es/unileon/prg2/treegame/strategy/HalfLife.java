@@ -9,6 +9,7 @@ public class HalfLife implements LifeStrategy {
 	 * @author Alberto Manzano
 	 * @author Iván Montes
 	 * @author Pablo Diez
+	 * @author Andrea San Ramón.
 	 */
 	
 	
