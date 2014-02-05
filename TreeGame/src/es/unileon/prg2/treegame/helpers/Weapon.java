@@ -4,9 +4,10 @@ import es.unileon.prg2.treegame.exceptions.InvalidPowerValueException;
 
 /**
  * Armas que se emplean para matar los árboles enemigos.
- * @author Alberto Manzano.
- * @author Ivan Montes.
- * @author Pablo Díez.
+ * @author Alberto Manzano
+ * @author Ivan Montes
+ * @author Pablo Díez
+ * @author Andrea San Ramon
  * @version 1.0
  */
 public class Weapon {

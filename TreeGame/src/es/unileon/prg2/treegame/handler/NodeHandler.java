@@ -6,9 +6,10 @@ import es.unileon.prg2.treegame.composite.Articulation;
 
 /**
  * Identificador de los nodos del árbol del juego.
- * @author Alberto Manzano.
- * @author Iván Montes.
- * @author Pablo Díez.
+ * @author Alberto Manzano
+ * @author Iván Montes
+ * @author Pablo Díez
+ * @author Andrea San Ramon
  * @version 1.0
  */
 public class NodeHandler implements Handler {

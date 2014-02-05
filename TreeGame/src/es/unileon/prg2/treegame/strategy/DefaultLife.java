@@ -3,10 +3,10 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 
 /**
  * Clase que implementa el cálculo normal de vida, obteniendo la diferencia de daño entre nodo y arma.
- * @author Alberto Manzano.
- * @author Iván Montes.
- * @author Pablo Díez.
- * @author Andrea San Ramón.
+ * @author Alberto Manzano
+ * @author Iván Montes
+ * @author Pablo Díez
+ * @author Andrea San Ramon
  *
  */
 public class DefaultLife implements LifeStrategy{

@@ -8,9 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author Alberto Manzano.
- * @author Ivan Montes.
- * @author Pablo Díez.
+ * @author Alberto Manzano
+ * @author Ivan Montes
+ * @author Pablo Díez
  * @author Andrea San Ramon
  * @version 1.0
  */

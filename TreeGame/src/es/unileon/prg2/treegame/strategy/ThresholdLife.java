@@ -4,10 +4,10 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 /**
  * Cálculo de vida mediante un umbral, la  vida se calcula restando de la vida actual la potencia del arma utilizada
  * menos ese umbral.
- * @author Alberto Manzano.
- * @author Iván Montes.
- * @author Pablo Díez.
- * @author Andrea San Ramón.
+ * @author Alberto Manzano
+ * @author Iván Montes
+ * @author Pablo Díez
+ * @author Andrea San Ramon
  * 
  *
  */

@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
  * @author Alberto Manzano
  * @author Iván Montes
  * @author Pablo Díez
- * @author Andrea San Ram—n
+ * @author Andrea San Ramon
  * @version 1.0
  */
 public class Main {

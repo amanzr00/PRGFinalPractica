@@ -10,6 +10,7 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
  * @author Alberto Manzano
  * @author Iván Montes
  * @author Pablo Díez
+ * @author Andrea San Ramon
  * @version 1.0
  */
 public abstract class Shield extends Node {

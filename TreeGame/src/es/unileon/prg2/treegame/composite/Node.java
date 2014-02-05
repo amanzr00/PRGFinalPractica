@@ -8,6 +8,9 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
  * Interfaz que define las operaciones que se pueden realizar sobre un
  * árbol de juego de un determinado jugador.
  * @author Alberto Manzano
+ * @author Iván Montes
+ * @author Pablo Díez
+ * @author Andrea San Ramon
  * @version 1.0
  */
 public abstract class Node {
