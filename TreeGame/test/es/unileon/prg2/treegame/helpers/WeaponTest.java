@@ -1,5 +1,7 @@
 package es.unileon.prg2.treegame.helpers;
 
+import es.unileon.prg2.treegame.exceptions.InvalidPowerValueException;
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -22,21 +24,16 @@ public class WeaponTest {
 	}	
 
 	@Test
-	public void testGetPower() {
+	public void testGetAndSetPower() {
 		assertEquals(this.weapon2.getPower(), 2);
-		assertEquals(this.weapon3.getPower(), 3);
-		assertEquals(this.weapon4.getPower(), 4);
+		this.weapon2.setPower(22);
+		assertEquals(this.weapon2.getPower(), 22);
 		
 	}
-	
-	@Test
-	public void testSetPower(){
-		weapon2.setPower(10);
-		assertEquals(this.weapon2.getPower(), 10);
-		weapon3.setPower(0);
-		assertEquals(this.weapon3.getPower(), 0);
-		//assertTrue(weapon4.setPower(-5), "El valor del poder del arma debe ser siempre superior a 0");
-		
+
+	@Test(expected = InvalidPowerValueException.class)
+	public void testSetPowerNegative(){
+		weapon4.setPower(-1);
 	}
 	
 }

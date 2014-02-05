@@ -50,12 +50,7 @@ public class ArticulationTest {
 		//Node1
 			//Node2
 			//Node3
-				//Node4
-				//Node5
-			//Node6
-				//Node7
-					//Node8
-				//Node9
+			
 		this.node1 = new Articulation(id1, 15, strategy2);
 		this.node2 = new Articulation(id2, 7, strategy1);
 		this.node3 = new Articulation(id3, 6, strategy1);
@@ -66,6 +61,8 @@ public class ArticulationTest {
 		this.node8 = new Extremity (id8, 2, strategy2);
 		this.node9 = new Extremity (id9, 4, strategy1);
 		
+		this.node1.add(node2);
+		this.node1.add(node3);
 	}
 
 	@Test

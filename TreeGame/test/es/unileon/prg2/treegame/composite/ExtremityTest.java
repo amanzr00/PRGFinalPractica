@@ -123,7 +123,7 @@ public class ExtremityTest {
 	}
 	
 	@Test
-	public void TestSetLife(int life){
+	public void TestSetLife(){
 		
 		//this.root.setLife(60);
 		//assertEquals(this.root.getLife(), 60);
@@ -131,7 +131,7 @@ public class ExtremityTest {
 	}
 	
 	@Test
-	public void TestSetLifeStrategy(LifeStrategy lifeStrategy){
+	public void TestSetLifeStrategy(){
 		
 		/*
 		 * Implementar
