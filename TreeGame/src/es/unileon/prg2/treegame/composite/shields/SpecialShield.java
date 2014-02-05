@@ -9,6 +9,7 @@ import es.unileon.prg2.treegame.helpers.Weapon;
  * @author Alberto Manzano.
  * @author Iván Montes.
  * @author Pablo Diez.
+ * @author Andrea San Ramon.
  * @version 1.0
  */
 public class SpecialShield extends Shield {

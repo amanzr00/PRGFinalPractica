@@ -6,9 +6,12 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 /**
  * Escudo estático con valor permanente ataque tras ataque. El arma con la que se ataca disminuye su potencia en una cantidad igual
  * a la potencia del escudo.
+ *
  * @author Alberto Manzano
  * @author Iván Montes
- * @author Pablo Díez.
+ * @author Pablo Díez
+ * @author Andrea San Ramon
+ *
  */
 
 public class StaticShield extends Shield {
