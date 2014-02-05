@@ -32,6 +32,7 @@ public class Extremity extends Node {
 		super(id);
 		this.life = life;
 		this.lifeStrategy = lifeStrategy;
+
 	}
 	
 	@Override

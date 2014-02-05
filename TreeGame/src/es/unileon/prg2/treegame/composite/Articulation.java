@@ -44,6 +44,9 @@ public class Articulation extends Node {
 		super(id);
 		this.life = life;
 		this.lifeStrategy = lifeStrategy;
+		this.nodes = new ArrayList<Node>();
+		
+		
 	}
 
 
@@ -67,7 +70,9 @@ public class Articulation extends Node {
 
 	@Override
 	public Node search(Handler id) {
-		if(id.compareTo(id) == 0){
+		
+		// D U D A (primer if)
+		if(id.compareTo(getId()) == 0){
 			return this;
 		}
 		for(Node objetive : nodes){
@@ -84,6 +89,8 @@ public class Articulation extends Node {
 
 	@Override
 	public int hurt(Weapon weapon) {
+		
+		// DUDA (break)
 		for(Node node : nodes){
 			if(node.isAlive()){
 				if(node.hurt(weapon) == 0) break;
