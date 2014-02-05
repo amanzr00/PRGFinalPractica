@@ -56,7 +56,7 @@ public class SimpleShieldTest {
 		//Node1
 			//Node2
 			//Node3
-				//Node4
+				//Node4 (Con simpleShield1: 10)
 				//Node5
 		
 		this.node1.add(node2);
@@ -74,7 +74,10 @@ public class SimpleShieldTest {
 	@Test
 	public void testHurt() {
 		
+		// Atacamos simpleShield1 (resistencia 10) con weapon2 (poder 6). Poder resultante del arma: 0
 		assertEquals(this.simpleShield1.hurt(weapon2), 0);
+		// Volvemos a atacar a simpleShield1 (Ahora resistencia = 4) con weapon1 (poder 10).
+		// Llega atacar al node4 (vida 4) y muere. Poder resultante del arma: 2.
 		assertEquals(this.simpleShield1.hurt(weapon1), 2);
 			
 	}

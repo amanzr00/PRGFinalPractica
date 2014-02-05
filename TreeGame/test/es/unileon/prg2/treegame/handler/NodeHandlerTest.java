@@ -9,6 +9,7 @@ public class NodeHandlerTest {
 
 	private NodeHandler number1, number2, number3;
 	int id, id2;
+	
 	@Before
 	public void setUp() throws Exception {
 		id = 1;
@@ -18,12 +19,21 @@ public class NodeHandlerTest {
 		number3 = new NodeHandler(id2);
 	}
 
+	/**
+	 * Test para comprobar que se comparan correctamente los identificadores
+	 */
 	@Test
 	public void testcompareTo() {
+		// Comparamos dos identificadores diferentes. Resultado: -1
 		assertEquals(this.number1.toString().compareTo(number2.toString()), -1);
+		// Comparamos dos identificadores iguales: Resultado: 0
 		assertEquals(this.number3.toString().compareTo(number3.toString()), 0);
 		
 	}
+	
+	/**
+	 * 
+	 */
 	@Test
 	public void testToString() {
 		assertEquals(this.number1.toString(), "1");

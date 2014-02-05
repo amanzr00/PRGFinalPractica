@@ -1,9 +1,6 @@
 package es.unileon.prg2.treegame.composite;
 
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,10 +24,11 @@ public class ArticulationTest {
 	private Weapon weapon2, weapon3, weapon4;
 	private Handler id1, id2, id3, id4, id5, id7;
 	private Node node1, node2, node3, node4, node5, node6;
-	private LifeStrategy strategy1, strategy2, strategy4;
+	private LifeStrategy strategy1, strategy2, strategy3;
 	
 	@Before
 	public void setUp() throws Exception {
+		
 		this.id1 = new NodeHandler(1);
 		this.id2 = new NodeHandler(2);
 		this.id3 = new NodeHandler(3);
@@ -41,6 +39,7 @@ public class ArticulationTest {
 		this.weapon2 = new Weapon (6);
 		this.weapon3 = new Weapon (2);
 		this.weapon4 = new Weapon (4);
+		
 		this.strategy1 = new DefaultLife();
 		this.strategy2 = new ThresholdLife(3);
 		
@@ -69,9 +68,11 @@ public class ArticulationTest {
 	 */
 	@Test
 	public void TestAdd (){
+		
+		// Creamos un nodo Extremidad
 		NodeHandler id10 = new NodeHandler(10);
 		Node node10 = new Extremity(id10, 3, strategy1);
-		// Aniadir a un nodo articulacion
+		// Aniadimos el nodo a una articulacion
 		assertTrue(this.node3.add(node10));
 		// Aniadir a un nodo extremidad
 		assertFalse(this.node4.add(node10));
@@ -79,9 +80,8 @@ public class ArticulationTest {
 	}
 	
 	/**
-	 * Test para comprobar que salta la exception "IllegalArgumentException"
+	 * Test para comprobar que salta la exception "IllegalArgumentException".
 	 * Saltara cuando se intente aniadir un nodo nulo
-	 * 
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testAddInvalidLifeValue(){
@@ -92,13 +92,13 @@ public class ArticulationTest {
 	 * Test que comprueba:
 	 * 		- Se puede eliminar un nodo del arbol
 	 * 		- No se puede eliminar una articulacion de una extremidad
-	 * 
 	 */
 	
 	@Test
 	public void TestRemove (){
-		
+		// node4 -> Existe, por lo que se elimina sin problemas
 		assertTrue(this.node3.remove(node4));
+		// node3 -> No existe
 		assertFalse(this.node4.remove(node3));
 		
 	}
@@ -106,30 +106,29 @@ public class ArticulationTest {
 	/**
 	 * Test que comprueba que salta la excepcion "IllegalArgumentException"
 	 * Dicha excepcion saltara cuando se intente eliminar un nodo que no exista.
-	 * 
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testRemoveInvalidLifeValue(){
+		// node6 -> No existe
 		node1.remove(node6);
 	}
 	
 	/**
 	 * Test para comprobar el metodo para buscar, y el funcionamiento del handler.
 	 * Devuelve el nodo buscado si existe, o null si no esta en el arbol (no existe).
-	 * 
 	 */
 	@Test
 	public void TestSearch (){
-	
+		// Buscamos el id1 (node1) y el id4 (node4) -> Existen 
 		assertEquals(this.node1.search(id1), node1);
 		assertEquals(this.node3.search(id4), node4);
+		// Buscamos el id7 (node7) -> No existe
 		assertNull(this.node1.search(id7));
 		
 	}
 	
 	/**
 	 * Test para comprobar que se pasa de int a String correctamente
-	 * 
 	 */
 	@Test
 	public void TestToString(){
@@ -141,31 +140,30 @@ public class ArticulationTest {
 	 * Test para comprobar el funcionamiento de hurt.
 	 * A la vida del nodo atacado se le restara la potencia del arma.
 	 * Devuelve la potencia restante del arma.
-	 * 
 	 */
 	@Test
 	public void TestHurt(){
-		
+		// node5 (vida 6), atacado por weapon3 (poder 2) -> Poder del arma restante: 0
 		assertEquals(this.node5.hurt(weapon3), 0);
+		// node4 (vida 4), atacado por weapon2 (poder 6) -> Poder del arma restante: 2
 		assertEquals(this.node4.hurt(weapon2), 2);
 	
 	}
 	
 	/**
 	 * Test que para comprobar que se obtiene correctamente la puntuacion final
-	 * 
 	 */
 	@Test
 	public void TestGetFinalScore(){
 		
-		// Puntuacion incial (sin recibir ni realizar ataques)
+		// Puntuacion incial (sin recibir ni realizar ataques): 88
 		assertEquals(this.node1.getFinalScore(), 88);
 		
-		// Con ataques
+		// Con ataques al node5 (vida restante: 4) y al node4 (muere)
 		this.node5.hurt(weapon3);
 		this.node4.hurt(weapon4);
 		
-		// Puntuacion final (tras 2 ataques)
+		// Puntuacion final (tras 2 ataques): 72
 		assertEquals(this.node1.getFinalScore(), 72);
 	}
 	
@@ -178,8 +176,10 @@ public class ArticulationTest {
 	@Test
 	public void TestSetAndGetLife(){
 		
+		// Nueva vida de: 60
 		this.node1.setLife(60);
 		assertEquals(this.node1.getLife(), 60);
+		// Nueva vida de: 0
 		this.node2.setLife(0);
 		assertEquals(this.node2.getLife(),0);
 		
@@ -187,10 +187,12 @@ public class ArticulationTest {
 
 	/**
 	 * Test para comprobar que salta la excepcion "IllegalArgumentException".
-	 * Saltara cuando se intente establecer la vida a un nodo (set) con un numero < 0.
+	 * Salta cuando la estrategia de vida (LifeStrategy) sea nula
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testSetLifeStrategy(){
-		this.node1.setLifeStrategy(strategy4);
+	public void testSetNullLifeStrategy(){
+		
+		// strategy3 -> Nula (Salta la excepcion)
+		this.node1.setLifeStrategy(strategy3);
 	}
 }

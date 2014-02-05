@@ -11,6 +11,7 @@ import es.unileon.prg2.treegame.helpers.Weapon;
  * @author Alberto Manzano.
  * @author Iván Montes.
  * @author Pablo Díez.
+ * @author Andrea San Ramon
  */
 public class ThresholdLifeTest {
 	private ThresholdLife thresHold = new ThresholdLife(5);

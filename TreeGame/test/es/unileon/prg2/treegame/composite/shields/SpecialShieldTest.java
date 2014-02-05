@@ -56,7 +56,7 @@ public class SpecialShieldTest {
 			//Node2
 			//Node3
 				//Node4
-				//Node5
+				//Node5 (Con specialShiel1: 1)
 		
 		this.node1.add(node2);
 		this.node1.add(node3);
@@ -75,10 +75,11 @@ public class SpecialShieldTest {
 	@Test
 	public void testHurt() {
 		
+		// Atacamos a specialShield1 (resiste 1 ataque) con weapon1 (poder 10). El arma ataca al nodo5 (vida 6) con la mitad del poder
+		// Poder restante: 0
 		assertEquals(this.specialShield1.hurt(weapon1), 0);
-		// Muerte el nodo, y al weapon2, le sobra 5 de potencia
+		// Volvemos a atacar al node5 (vida restante: 1) que ya no tiene escudo, con weapon2 (poder 6). Poder restante: 5
 		assertEquals(this.specialShield1.hurt(weapon2), 5);
-
 		
 	}	
 }
