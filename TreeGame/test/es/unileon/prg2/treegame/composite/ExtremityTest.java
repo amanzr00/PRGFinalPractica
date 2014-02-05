@@ -35,10 +35,7 @@ public class ExtremityTest {
 		this.id3 = new NodeHandler(3);
 		this.id4 = new NodeHandler(4);
 		this.id5 = new NodeHandler(5);
-		this.id6 = new NodeHandler(6);
-		this.id7 = new NodeHandler(7);
-		this.id8 = new NodeHandler(8);
-		this.id9 = new NodeHandler(9);
+	
 		this.weapon1 = new Weapon (10);
 		this.weapon2 = new Weapon (6);
 		this.weapon3 = new Weapon (2);
@@ -51,59 +48,63 @@ public class ExtremityTest {
 			//Node3
 				//Node4
 				//Node5
-			//Node6
-				//Node7
-					//Node8
-				//Node9
+
 		this.node1 = new Articulation(id1, 15, strategy2);
 		this.node2 = new Articulation(id2, 7, strategy1);
 		this.node3 = new Articulation(id3, 6, strategy1);
 		this.node4 = new Extremity (id4, 4, strategy1);
 		this.node5 = new Extremity (id5, 6, strategy1);
-		this.node6 = new Articulation (id6, 5, strategy2);
-		this.node7 = new Articulation (id7, 6, strategy1);
-		this.node8 = new Extremity (id8, 2, strategy2);
-		this.node9 = new Extremity (id9, 4, strategy1);
+
+		this.node1.add(node2);
+		this.node1.add(node3);
+		this.node3.add(node4);
+		this.node3.add(node5);
 	
 	}
 
 	@Test
 	public void TestAdd (){
-	
-		assertTrue(this.node5.add(new Extremity(id5, 6, strategy1)));
-		assertFalse(this.node5.add(new Extremity(id5, 6, strategy1)));
-		assertTrue(this.node8.add(new Extremity(id8, 2, strategy2)));
+		this.id6 = new NodeHandler(6);
+		this.node6 = new Extremity (id6, 5, strategy2);
+		
+		assertTrue(this.node2.add(node6));
+		assertFalse(this.node4.add(node6));
+		
 		
 	}
 	
 	@Test
 	public void TestRemove (){
+		this.id6 = new NodeHandler(6);
+		this.node6 = new Extremity (id6, 5, strategy2);
 		
-		assertTrue(this.node5.add(new Extremity(id5, 6, strategy1)));
-		assertFalse(this.node5.add(new Extremity(id5, 6, strategy1)));
-		assertTrue(this.node8.add(new Extremity(id8, 2, strategy2)));
-
+		assertTrue(this.node3.remove(node4));
+		assertFalse(this.node3.remove(node6));
+		
 	}
 	
 	@Test
 	public void TestSearch (){
-	
+		this.id6 = new NodeHandler(6);
+		this.node6 = new Extremity (id6, 5, strategy2);
 		
+		assertNotNull(this.node4.search(id4));
+		assertNull(this.node4.search(id6));
 
 	}
 	
 	@Test
 	public void TestToString(){
 				
-		//assertEquals(this.root.toString(),"1\nnull\nnull\n");
+		assertEquals(this.node4.getId().toString(), "4");
 
 	}
 	
 	@Test
 	public void TestHurt(){
 		
-		//assertEquals(this.root.hurt(weapon1), 10);
-		//assertEquals(this.articulation1.hurt(weapon2), 2);
+		assertEquals(this.node4.hurt(weapon1), 6);
+		assertEquals(this.node5.hurt(weapon2), 0);
 		
 		
 	}
@@ -111,24 +112,18 @@ public class ExtremityTest {
 	@Test
 	public void TestGetFinalScore(){
 		
-		//assertEquals(this.life, 120 );
+		assertEquals(this.node4.getFinalScore(), 14);
 		
 	}
 	
 	@Test
-	public void TestGetLife(){
-		
-		//assertEquals(this.root.getLife(), 50);
+	public void TestSetAndGetLife(){
+		node4.setLife(4);
+		assertEquals(this.node4.getLife(), 4);
 		//assertEquals(this.articulation1.getLife(), 50);
 	}
 	
-	@Test
-	public void TestSetLife(){
-		
-		//this.root.setLife(60);
-		//assertEquals(this.root.getLife(), 60);
-		
-	}
+	
 	
 	@Test
 	public void TestSetLifeStrategy(){
