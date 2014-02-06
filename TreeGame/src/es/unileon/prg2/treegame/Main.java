@@ -1,6 +1,6 @@
 package es.unileon.prg2.treegame;
 
-import org.apache.log4j.Logger;
+
 
 /**
  * Punto de entrada en la aplicación.
