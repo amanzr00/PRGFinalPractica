@@ -1,5 +1,7 @@
 package es.unileon.prg2.treegame.composite.shields;
 
+import org.apache.log4j.Logger;
+
 import es.unileon.prg2.treegame.composite.Node;
 import es.unileon.prg2.treegame.helpers.Weapon;
 
@@ -15,6 +17,11 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 public class SpecialShield extends Shield {
 
 	/**
+	 * Log
+	 */
+	static Logger log = Logger.getLogger(SpecialShield.class);
+	
+	/**
 	 * El número de ataques soportados por el escudo.
 	 */
 	private int numAttacks;
@@ -28,6 +35,7 @@ public class SpecialShield extends Shield {
 	public SpecialShield(Node target, int numAttacks) {
 		super(target);
 		this.numAttacks = numAttacks;
+		log.info("SpecialShield creado");
 	}
 	
 	@Override
@@ -35,7 +43,9 @@ public class SpecialShield extends Shield {
 		if(numAttacks > 0){
 			numAttacks--;
 			weapon.setPower(weapon.getPower()/2);
+			log.info("Ataques restantes disminuidos");
 		}
+		log.info("Se ha destruido el escudo se atacara al nodo");
 		return super.hurt(weapon);
 	}
 }

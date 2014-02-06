@@ -45,7 +45,7 @@ public class Extremity extends Node {
 	
 	@Override
 	public boolean add(Node node) {
-		log.info("No se pueden anyadir elementos a una extremidad");
+		log.info("No se pueden agregar elementos a una extremidad");
 		return false;
 	}
 	

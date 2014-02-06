@@ -31,6 +31,7 @@ public class SimpleShield extends Shield {
 	 */
 	public SimpleShield(Node target, int resistance) {
 		super(target);
+		log.info("SimpleShield creado");
 		this.resistance = resistance;
 	}
 
@@ -39,10 +40,12 @@ public class SimpleShield extends Shield {
 		if (weapon.getPower() >= this.resistance){
 			weapon.setPower(weapon.getPower() - this.resistance);
 			this.resistance = 0;
+			log.info("Se ha atacado con potencia mayor o igual que la resistencia");
 			return super.hurt(weapon);
 		} else {
 			this.resistance = this.resistance - weapon.getPower();
 			weapon.setPower(0);
+			log.info("Se ha atacado con potencia menor que la resistencia");
 			return 0;
 		}
 	}

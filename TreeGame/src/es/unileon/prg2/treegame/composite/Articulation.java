@@ -63,7 +63,7 @@ public class Articulation extends Node {
 	@Override
 	public boolean add(Node objetive) {
 		if(objetive == null){
-			log.error("Error en anyadir objetive, no se esta pasando un objetive");
+			log.error("Error en agregar un nodo, no se esta pasando un nodo");
 			throw new IllegalArgumentException("Me tienen que pasar un nodo para añadir.");
 		}
 		log.info("Se ha anyadido el objetive" + objetive.toString() + "a" + this.toString());
@@ -74,7 +74,7 @@ public class Articulation extends Node {
 	@Override
 	public boolean remove(Node objetive) {
 		if(objetive == null){
-			log.error("Error en borrar objetive, no se esta pasando un objetive");
+			log.error("Error en borrar nodo, no se esta pasando un nodo");
 			throw new IllegalArgumentException("Me tienen que pasar un nodo a eliminar");
 		}
 		log.info("Se ha borrado el objetive" + objetive.toString() + "a" + this.toString());
