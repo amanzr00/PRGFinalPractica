@@ -2,7 +2,6 @@ package es.unileon.prg2.treegame.handler;
 
 import org.apache.log4j.Logger;
 
-import es.unileon.prg2.treegame.composite.Articulation;
 
 /**
  * Identificador de los nodos del árbol del juego.

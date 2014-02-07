@@ -1,8 +1,6 @@
 package es.unileon.prg2.treegame.composite.shields;
 
 import org.apache.log4j.Logger;
-
-import es.unileon.prg2.treegame.composite.Articulation;
 import es.unileon.prg2.treegame.composite.Node;
 import es.unileon.prg2.treegame.helpers.Weapon;
 

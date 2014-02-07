@@ -3,14 +3,6 @@ package es.unileon.prg2.treegame.composite;
 import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
-
-
-
-
-
-
-
-import es.unileon.prg2.treegame.Main;
 import es.unileon.prg2.treegame.exceptions.InvalidLifeValueException;
 import es.unileon.prg2.treegame.handler.Handler;
 import es.unileon.prg2.treegame.helpers.Weapon;
