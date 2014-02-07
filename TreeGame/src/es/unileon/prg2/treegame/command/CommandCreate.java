@@ -1,7 +1,11 @@
 package es.unileon.prg2.treegame.command;
 
+import es.unileon.prg2.treegame.composite.Articulation;
 import es.unileon.prg2.treegame.composite.Node;
 import es.unileon.prg2.treegame.composite.shields.Shield;
+import es.unileon.prg2.treegame.handler.Handler;
+import es.unileon.prg2.treegame.handler.Identifier;
+import es.unileon.prg2.treegame.handler.NodeHandler;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 public class CommandCreate {
@@ -14,7 +18,9 @@ public class CommandCreate {
 	
 	private int life;
 	
-	private int identifier;
+	private Handler identifier;
+	
+	private Identifier id;
 	
 	/**
 	 * Constructor
@@ -25,6 +31,7 @@ public class CommandCreate {
 	
 	public void CommandCreate(Node node, LifeStrategy strategy, Shield shield){
 		
+		this.identifier = new NodeHandler (id.getId());
 		this.node = node;
 		this.strategy = strategy;
 		this.shield = shield;
@@ -36,7 +43,7 @@ public class CommandCreate {
 	 */
 	public void execute(){
 		
-		this.node = new Articulation( id, life, strategy);
+		this.node = new Articulation( identifier, life, strategy);
 	}
 	
 	
