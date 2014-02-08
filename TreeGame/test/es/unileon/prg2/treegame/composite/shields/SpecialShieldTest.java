@@ -8,6 +8,7 @@ import org.junit.Test;
 import es.unileon.prg2.treegame.composite.Articulation;
 import es.unileon.prg2.treegame.composite.Extremity;
 import es.unileon.prg2.treegame.composite.Node;
+import es.unileon.prg2.treegame.exceptions.InvalidResistanceValueException;
 import es.unileon.prg2.treegame.handler.Handler;
 import es.unileon.prg2.treegame.handler.NodeHandler;
 import es.unileon.prg2.treegame.helpers.Weapon;
@@ -21,6 +22,7 @@ import es.unileon.prg2.treegame.strategy.ThresholdLife;
  * @author Pablo Diez.
  * @author Andrea San Ramon.
  */
+
 public class SpecialShieldTest {
 	
 	private Weapon weapon1, weapon2;
@@ -28,6 +30,7 @@ public class SpecialShieldTest {
 	private Node node1, node2, node3, node4, node5;
 	private LifeStrategy strategy1, strategy2;
 	private Shield specialShield1;
+	private int numAttacks1;
 
 	@Before
 	public void setUp() throws Exception {
@@ -52,6 +55,8 @@ public class SpecialShieldTest {
 		
 		this.specialShield1 = new SpecialShield(node5, 1);
 		
+		this.numAttacks1 = 3;
+		/* ARBOL */
 		//Node1
 			//Node2
 			//Node3
@@ -65,21 +70,48 @@ public class SpecialShieldTest {
 		
 	}
 
-	/**
-	 * Test para comprobar el funcionamiento correcto de SpecialShield
-	 * Este escudo (SpecialShield), tendra un numero de ataques a resistir.
-	 * Cada vez que se le ataque, restara uno a la resistencia, y el valor del arma quedara reducido a la mitad
-	 * y el nodo, recibia el danio restante del arma.
-	 * Devuelve la potencia del arma.
-	 */
 	@Test
-	public void testHurt() {
+	public void constructorTest(){
+		
+		SpecialShield specialShield = new SpecialShield(this.node1, this.numAttacks1);
+		assertNotNull(specialShield);
+	}
+	
+	@Test
+	public void failConstructorTest(){
+		
+		SpecialShield specialShield = null;
+		assertNull(specialShield);
+	}
+	
+	@Test(expected = InvalidResistanceValueException.class)
+	public void constructorExceptionNegativeResistance(){
+		new SpecialShield(node1, -3);
+	}
+	
+	@Test(expected = InvalidResistanceValueException.class)
+	public void constructorExceptionZeroResistance(){
+		new SimpleShield(node1, 0);
+	}
+	
+	@Test
+	public void destructionOfSpecialShieldTwoShoots() {
 		
 		// Atacamos a specialShield1 (resiste 1 ataque) con weapon1 (poder 10). El arma ataca al nodo5 (vida 6) con la mitad del poder
 		// Poder restante: 0
 		assertEquals(this.specialShield1.hurt(weapon1), 0);
 		// Volvemos a atacar al node5 (vida restante: 1) que ya no tiene escudo, con weapon2 (poder 6). Poder restante: 5
 		assertEquals(this.specialShield1.hurt(weapon2), 5);
-		
 	}	
+	
+	@Test
+	public void hurtSpecialShiedlTest(){
+		
+		assertEquals(this.node5.hurt(weapon2), 0);
+	}
+	
+	@Test
+	public void getPriceTest(){
+		assertEquals(specialShield1.getPrice(), 10);
+	}
 }

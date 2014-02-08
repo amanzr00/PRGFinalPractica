@@ -8,6 +8,7 @@ import org.junit.Test;
 import es.unileon.prg2.treegame.composite.Articulation;
 import es.unileon.prg2.treegame.composite.Extremity;
 import es.unileon.prg2.treegame.composite.Node;
+import es.unileon.prg2.treegame.exceptions.InvalidResistanceValueException;
 import es.unileon.prg2.treegame.handler.Handler;
 import es.unileon.prg2.treegame.handler.NodeHandler;
 import es.unileon.prg2.treegame.helpers.Weapon;
@@ -29,7 +30,7 @@ public class SimpleShieldTest {
 	private Node node1, node2, node3, node4, node5;
 	private LifeStrategy strategy1, strategy2;
 	private Shield simpleShield1;
-	
+	private int resistance1;
 	@Before
 	public void setUp() throws Exception {
 		
@@ -53,6 +54,8 @@ public class SimpleShieldTest {
 			
 		this.simpleShield1 = new SimpleShield(node4, 10);
 		
+		this.resistance1 = 10;
+		
 		//Node1
 			//Node2
 			//Node3
@@ -65,20 +68,61 @@ public class SimpleShieldTest {
 		this.node3.add(node5);
 	}
 
-	/**
-	 * Test que comprueba el funcionamiento de SimpleShield
-	 * Este escudo (SimpleShield), tendra una resistencia, que ira dismuniyendo segun sea el valor del arma con el que se ataca.
-	 * Cuando la resistencia llegue a 0, el danio pasara a afectar al nodo.
-	 * Devuelve la potencia del arma resultante.
-	 */
+	
 	@Test
-	public void testHurt() {
+	public void constructorTest(){
 		
+		SimpleShield simpleShield = new SimpleShield(this.node1, this.resistance1);
+		
+		assertNotNull(simpleShield);
+		assertEquals(node1.getId(), this.id1);
+		assertEquals(this.resistance1, 10);
+	}
+
+	
+	@Test
+	public void failConstructorTest(){
+		
+		SimpleShield simpleShield = null;
+		assertNull(simpleShield);
+	}
+	
+	@Test(expected = InvalidResistanceValueException.class)
+	public void constructorExceptionNegativeResistance(){
+		new SimpleShield(node1, -3);
+	}
+	
+	@Test(expected = InvalidResistanceValueException.class)
+	public void constructorExceptionZeroResistance(){
+		new SimpleShield(node1, 0);
+	}
+
+	@Test
+	public void destructionOfSimpleShieldTwoShoots(){
 		// Atacamos simpleShield1 (resistencia 10) con weapon2 (poder 6). Poder resultante del arma: 0
 		assertEquals(this.simpleShield1.hurt(weapon2), 0);
 		// Volvemos a atacar a simpleShield1 (Ahora resistencia = 4) con weapon1 (poder 10).
 		// Llega atacar al node4 (vida 4) y muere. Poder resultante del arma: 2.
 		assertEquals(this.simpleShield1.hurt(weapon1), 2);
+	}
+	
+	@Test
+	public void hurtSimpleShield(){
+		SimpleShield simpleShield = new SimpleShield(this.node2, 5);
+		Weapon weapon = new Weapon (2);
+		
+		assertEquals(simpleShield.hurt(weapon), 0);
 			
 	}
+	
+	@Test
+	public void getPriceTest() {
+		
+		assertEquals(simpleShield1.getPrice(), this.resistance1);
+		
+		SimpleShield simpleShield2 = new SimpleShield(this.node3, 5);
+		assertEquals(simpleShield2.getPrice(), 5);
+	}
+
+	
 }

@@ -3,6 +3,7 @@ package es.unileon.prg2.treegame.composite.shields;
 import org.apache.log4j.Logger;
 
 import es.unileon.prg2.treegame.composite.Node;
+import es.unileon.prg2.treegame.exceptions.InvalidResistanceValueException;
 import es.unileon.prg2.treegame.helpers.Weapon;
 
 /**
@@ -34,6 +35,7 @@ public class SpecialShield extends Shield {
 	 */
 	public SpecialShield(Node target, int numAttacks) {
 		super(target);
+		if(numAttacks <= 0) throw new InvalidResistanceValueException("La resistencia de ataques ha de ser mayor que 0");
 		this.numAttacks = numAttacks;
 		log.info("SpecialShield creado");
 	}

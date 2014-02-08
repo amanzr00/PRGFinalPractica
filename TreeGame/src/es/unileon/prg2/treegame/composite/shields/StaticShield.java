@@ -3,6 +3,7 @@ package es.unileon.prg2.treegame.composite.shields;
 import org.apache.log4j.Logger;
 
 import es.unileon.prg2.treegame.composite.Node;
+import es.unileon.prg2.treegame.exceptions.InvalidResistanceValueException;
 import es.unileon.prg2.treegame.helpers.Weapon;
 
 /**
@@ -32,6 +33,7 @@ public class StaticShield extends Shield {
 	 */
 	public StaticShield(Node target, int resistance){
 		super(target);
+		if (resistance <= 0) throw new InvalidResistanceValueException("La resistencia ha de ser mayor de 0");
 		log.info("StaticShield creado.");
 		this.resistance = resistance;
 	}
