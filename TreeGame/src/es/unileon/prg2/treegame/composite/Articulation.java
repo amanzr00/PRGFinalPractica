@@ -60,7 +60,7 @@ public class Articulation extends Node {
 			log.error("Error en agregar un nodo, no se esta pasando un nodo");
 			throw new IllegalArgumentException("Me tienen que pasar un nodo para añadir.");
 		}
-		log.info("Se ha anyadido el objetive" + node.toString() + "a" + this.toString());
+		log.info("Se ha añadido el objetive" + node.toString() + "a" + this.toString());
 		if(!nodes.contains(node)){
 			return nodes.add(node);
 		}
@@ -73,7 +73,7 @@ public class Articulation extends Node {
 			log.error("Error en borrar nodo, no se esta pasando un nodo");
 			throw new IllegalArgumentException("Me tienen que pasar un nodo a eliminar");
 		}
-		log.info("Se ha borrado el objetive" + node.toString() + "a" + this.toString());
+		log.info("Se ha eliminado" + node.toString() + "de" + this.toString());
 		return nodes.remove(node);
 	}
 
