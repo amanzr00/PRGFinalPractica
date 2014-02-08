@@ -48,11 +48,14 @@ public class CommandCreateArticulation {
 	 */
 	public void execute(){
 		// si el padre no existe excepcion
-		if(tree.search(parentId) == null) throw new IllegalArgumentException("Me tienen que pasar un padre que exista");
+		if(tree.search(parentId) == null)
+			throw new IllegalArgumentException("Me tienen que pasar un padre que exista");
 		// si está el nuevo excepción
-		if(tree.search(newNodeId) != null) throw new IllegalArgumentException("El nodo ya existe");
+		if(tree.search(newNodeId) != null)
+			throw new IllegalArgumentException("El nodo ya existe");
 		// compruebo credito, si no excepcion
-		if((credit.getCredit() <= 0) || (credit.getCredit() < life )) throw new IllegalArgumentException("No se dispone de credito suficiente");
+		if((credit.getCredit() <= 0) || (credit.getCredit() < life )) 
+			throw new IllegalArgumentException("No se dispone de credito suficiente");
 		
 		// Si llega aqui, es porque el padre existe, no hay problemas con el credito ni con el nodo nuevo
 		// Creamos el nodo
