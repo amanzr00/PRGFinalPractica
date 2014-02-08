@@ -18,7 +18,7 @@ public class HalfLifeTest {
 
 	private Weapon weapon2, weapon3, weapon4;
 	private int life1,life2;
-	private HalfLife halfLife = new HalfLife();
+	private HalfLife halfLife = new HalfLife(2);
 	@Before
 	public void setUp() throws Exception {
 		
