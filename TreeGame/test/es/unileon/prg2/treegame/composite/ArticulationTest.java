@@ -22,7 +22,7 @@ public class ArticulationTest {
 	
 
 	private Weapon weapon1, weapon2, weapon3, weapon4, weapon5;
-	private Handler id1, id2, id3, id4, id5, id6, id7, id8, id9, id10, id11, id12, id13, id14, id15;
+	private Handler id1, id2, id3, id4, id5, id6, id7, id8, id9, id10, id11, id12;
 	private Node node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11, node12, node13, node14, node15;
 	private LifeStrategy strategy1, strategy2, strategy3, strategy4, strategy5, strategy6, strategy7;
 	

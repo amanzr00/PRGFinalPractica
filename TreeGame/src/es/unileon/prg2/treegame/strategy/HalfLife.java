@@ -2,18 +2,14 @@ package es.unileon.prg2.treegame.strategy;
 
 import es.unileon.prg2.treegame.helpers.Weapon;
 
+/**
+ * Cálculo de la vida a partir de la mitad del poder del arma.
+ * @author Alberto Manzano
+ * @author Iván Montes
+ * @author Pablo Diez
+ * @author Andrea San Ramon
+ */
 public class HalfLife implements LifeStrategy {
-
-	/**
-	 * Cálculo de la vida a partir de la mitad del poder del arma.
-	 * @author Alberto Manzano
-	 * @author Iván Montes
-	 * @author Pablo Diez
-	 * @author Andrea San Ramon
-	 */
-	
-	
-	
 	@Override
 	public int calculateLife(int life, Weapon weapon) {
 		
@@ -29,10 +25,7 @@ public class HalfLife implements LifeStrategy {
 				life = 0;
 			}
 			weapon.setPower(weapon.getPower()/2 - life);
-			
-		
 		}
 		return life;
 	}
-	
 }

@@ -4,6 +4,7 @@ import es.unileon.prg2.treegame.composite.Articulation;
 import es.unileon.prg2.treegame.composite.Node;
 import es.unileon.prg2.treegame.handler.Handler;
 import es.unileon.prg2.treegame.helpers.Credit;
+import es.unileon.prg2.treegame.strategy.DefaultLife;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 /**
@@ -34,13 +35,12 @@ public class CommandCreateArticulation {
 	 * @param shield
 	 */
 	public CommandCreateArticulation(Credit credit, Node tree, Handler newNodeId, Handler parentId, int life){
-		
 		this.credit = credit;
 		this.tree = tree;
 		this.newNodeId = newNodeId;
 		this.parentId = parentId;
 		this.life = life;
-		
+		this.lifeStrategy = new DefaultLife();
 	}
 	
 	/**
@@ -63,7 +63,5 @@ public class CommandCreateArticulation {
 		parentNode.add(childNode);
 		// Cobramos el precio
 		credit.setCredit(life);
-	
 	}
-
 }

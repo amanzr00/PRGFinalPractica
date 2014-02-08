@@ -12,6 +12,9 @@ import es.unileon.prg2.treegame.exceptions.InvalidCreditValueException;
  */
 public class Credit {
 
+	/**
+	 * 
+	 */
 	private int totalCredit;
 	
 	/**
@@ -19,7 +22,6 @@ public class Credit {
 	 * @param totalCredit
 	 */
 	public Credit(int totalCredit){
-		
 		this.totalCredit = totalCredit;
 	}
 	
@@ -37,10 +39,7 @@ public class Credit {
 	 * @throws InvalidCreditValueException
 	 */
 	public void setCredit(int cost) throws InvalidCreditValueException{
-		
 		if (cost > totalCredit) throw new InvalidCreditValueException ("El credito total ha de ser mayor que el precio del objeto");
-		
 		this.totalCredit = totalCredit - cost;
-
 	}
 }

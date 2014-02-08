@@ -1,5 +1,7 @@
 package es.unileon.prg2.treegame;
 
+import org.apache.log4j.PropertyConfigurator;
+
 
 
 /**
@@ -17,6 +19,7 @@ public class Main {
 	 */
 	
 	public static void main(String[] args) {
+		PropertyConfigurator.configure("./etc/log4j.properties");
 		new CommandLineInvoker().runShell();
 	}
 }
