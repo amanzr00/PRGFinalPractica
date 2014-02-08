@@ -41,13 +41,11 @@ public class Articulation extends Node {
 	 * @param lifeStrategy la estrategia para calcular la vida.
 	 */
 	public Articulation(Handler id,int life, LifeStrategy lifeStrategy) {
-		
 		super(id);
-		log.info("Creacion de Articulation.");
-		this.life = life;
-		this.lifeStrategy = lifeStrategy;
+		setLife(life);
+		setLifeStrategy(lifeStrategy);
 		this.nodes = new ArrayList<Node>();
-		
+		log.info("Creacion de Articulation " + id.toString());
 	}
 
 
@@ -75,18 +73,14 @@ public class Articulation extends Node {
 
 	@Override
 	public Node search(Handler id) {
-		
-		// D U D A (primer if) y del log
 		if(id.compareTo(getId()) == 0){
 			return this;
-			
 		}
 		for(Node objetive : nodes){
 			Node searchComponent = objetive.search(id);
 			if(searchComponent != null) return objetive;
 			log.info("Busqueda del componente de" + objetive.toString() + "en" + this.toString());
 		}
-		
 		return null;
 	}
 

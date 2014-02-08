@@ -12,20 +12,8 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 public class HalfLife implements LifeStrategy {
 	@Override
 	public int calculateLife(int life, Weapon weapon) {
-		
-		if(weapon.getPower()/2 - life == 0){
-			life = 0;
-			weapon.setPower(0);
-		}else if(weapon.getPower()/2 < life){
-			life = life - weapon.getPower()/2;
-			weapon.setPower(0);
-		}else if(weapon.getPower()/2 > life){
-			life = life - weapon.getPower()/2;
-			if(life < 0){
-				life = 0;
-			}
-			weapon.setPower(weapon.getPower()/2 - life);
-		}
-		return life;
+		int lifeResult = Math.max(0, life - weapon.getPower()/2);
+		weapon.setPower(Math.max(0, weapon.getPower() - life * 2));
+		return lifeResult;
 	}
 }

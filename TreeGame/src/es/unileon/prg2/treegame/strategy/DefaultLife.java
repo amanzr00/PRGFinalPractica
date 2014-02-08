@@ -13,23 +13,8 @@ public class DefaultLife implements LifeStrategy{
 
 	@Override
 	public int calculateLife(int life, Weapon weapon) {
-		if(life < weapon.getPower()){
-			int damage = weapon.getPower() - life;
-			weapon.setPower(damage);
-			life = 0;
-		}else if(life == weapon.getPower()){
-			weapon.setPower(0);
-			life = 0;
-		}else {
-			int damage = weapon.getPower();
-			weapon.setPower(0);
-			life = life - damage;
-		}
-		return life;
+		int lifeResult = Math.max(0, life - weapon.getPower());
+		weapon.setPower(Math.max(0, weapon.getPower() - life));
+		return lifeResult;
 	}
-
-	
-	
-
-	
 }

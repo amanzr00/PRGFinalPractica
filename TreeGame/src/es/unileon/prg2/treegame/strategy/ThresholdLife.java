@@ -8,8 +8,6 @@ import es.unileon.prg2.treegame.helpers.Weapon;
  * @author Iván Montes
  * @author Pablo Díez
  * @author Andrea San Ramon
- * 
- *
  */
 public class ThresholdLife implements LifeStrategy {
 	
@@ -25,18 +23,8 @@ public class ThresholdLife implements LifeStrategy {
 	
 	@Override
 	public int calculateLife(int life, Weapon weapon) {
-		if((weapon.getPower() - threshold) == 0){
-			weapon.setPower(0);
-		}else if((weapon.getPower() - threshold) < life){
-			life = life - (weapon.getPower() - threshold);
-			weapon.setPower((weapon.getPower() - threshold));
-		}else if((weapon.getPower() - threshold) > life){
-			life = 0;
-			weapon.setPower((weapon.getPower() - threshold));
-		}else{
-			life = 0;
-			weapon.setPower(0);
-		}
-		return life;
+		int lifeResult = Math.max(0, life - Math.max(0, weapon.getPower() - this.threshold));
+		weapon.setPower(Math.max(0, weapon.getPower() - (life + this.threshold)));
+		return lifeResult;
 	}
 }

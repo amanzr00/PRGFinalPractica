@@ -1,13 +1,20 @@
 package es.unileon.prg2.treegame.composite;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 
+import es.unileon.prg2.treegame.exceptions.InvalidLifeValueException;
 import es.unileon.prg2.treegame.handler.Handler;
 import es.unileon.prg2.treegame.handler.NodeHandler;
 import es.unileon.prg2.treegame.helpers.Weapon;
 import es.unileon.prg2.treegame.strategy.DefaultLife;
+import es.unileon.prg2.treegame.strategy.HalfLife;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 import es.unileon.prg2.treegame.strategy.ThresholdLife;
 
@@ -28,7 +35,7 @@ public class ArticulationTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		
+		//Creamos ids
 		this.id1 = new NodeHandler(1);
 		this.id2 = new NodeHandler(2);
 		this.id3 = new NodeHandler(3);
@@ -41,21 +48,22 @@ public class ArticulationTest {
 		this.id10 = new NodeHandler(10);
 		this.id11 = new NodeHandler(11);
 		this.id12 = new NodeHandler(12);
-
+		//Creamos armas
 		this.weapon1 = new Weapon (5);
 		this.weapon2 = new Weapon (6);
 		this.weapon3 = new Weapon (2);
 		this.weapon4 = new Weapon (4);
 		this.weapon5 = new Weapon(8);
-		
+		//Creamos estrategias
 		this.strategy1 = new DefaultLife();
 		this.strategy2 = new ThresholdLife(3);
-		
+		this.strategy3 = new HalfLife();
+				
 		this.node1 = new Articulation(id1, 15, strategy2);
 		this.node2 = new Extremity(id2, 7, strategy1);
 		this.node3 = new Articulation(id3, 6, strategy1);
 		this.node4 = new Extremity (id4, 4, strategy1);
-		this.node5 = new Extremity (id5, 6, strategy1);
+		this.node5 = new Extremity (id5, 6, strategy3);
 		this.node6 = new Extremity (id6, 10, strategy1);
 		this.node7 = new Articulation (id7, 5, strategy1);
 		this.node8 = new Articulation (id8, 2, strategy1);
@@ -64,17 +72,16 @@ public class ArticulationTest {
 		
 		/* ARBOL */
 		
-		// Node1
-			// Node2
-			// Node3
-				// Node4
-				// Node5
-			// Node6
-			// Node7
-				// Node8
-					//Node9
-					//Node10
-		
+		// Node1 15 threshold
+			// Node2 7 default
+			// Node3 6 default 
+				// Node4 4 default
+				// Node5 6 half
+			// Node6 10 default
+			// Node7 5 default
+				// Node8 2 default
+					//Node9 10 default
+					//Node10 10 default
 		this.node1.add(node2);
 		this.node1.add(node3);
 		this.node3.add(node4);
@@ -84,8 +91,24 @@ public class ArticulationTest {
 		this.node7.add(node8);
 		this.node8.add(node9);
 		this.node8.add(node10);
-		
 	}
+	
+	@Test
+	/**
+	 * Comprueba la creación correcta del nodo con valores correctos.
+	 */
+	public void constructorTest(){
+		Articulation articulation = new Articulation(this.id1, 5, this.strategy1);
+		assertNotNull(articulation);
+		assertEquals(articulation.getId(), this.id1);
+		assertEquals(articulation.getLife(), 5);
+	}
+	
+	@Test(expected = InvalidLifeValueException.class)
+	public void constructorTestExceptionLife(){
+		Articulation articulation = new Articulation(this.id1, -3, this.strategy1);
+	}
+	
 	/**
 	 * Test para:
 	 * 		- Comprombar que se pueden aniadir nodos al arbol (siendo articulacion).
