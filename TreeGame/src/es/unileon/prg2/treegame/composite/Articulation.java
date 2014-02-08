@@ -44,37 +44,37 @@ public class Articulation extends Node {
 		super(id);
 		//Comprobamos la vida
 		if (life == 0) throw new InvalidLifeValueException("No puede crear un nodo de vida 0.");
-		else setLife(life);
+		setLife(life);
 		//Establecemos la estrategia.
 		setLifeStrategy(lifeStrategy);
 		//Creamos los nodos
 		this.nodes = new ArrayList<Node>();
-		log.info("Creacion de Articulation " + id.toString());
+		log.info("Creacion de Articulation: " + id.toString());
 	}
 
 
 	
 	@Override
-	public boolean add(Node objetive) {
-		if(objetive == null){
+	public boolean add(Node node) {
+		if(node == null){
 			log.error("Error en agregar un nodo, no se esta pasando un nodo");
 			throw new IllegalArgumentException("Me tienen que pasar un nodo para añadir.");
 		}
-		log.info("Se ha anyadido el objetive" + objetive.toString() + "a" + this.toString());
-		if(!nodes.contains(objetive)){
-			return nodes.add(objetive);
+		log.info("Se ha anyadido el objetive" + node.toString() + "a" + this.toString());
+		if(!nodes.contains(node)){
+			return nodes.add(node);
 		}
 		return false;
 	}
 
 	@Override
-	public boolean remove(Node objetive) {
-		if(objetive == null){
+	public boolean remove(Node node) {
+		if(node == null){
 			log.error("Error en borrar nodo, no se esta pasando un nodo");
 			throw new IllegalArgumentException("Me tienen que pasar un nodo a eliminar");
 		}
-		log.info("Se ha borrado el objetive" + objetive.toString() + "a" + this.toString());
-		return nodes.remove(objetive);
+		log.info("Se ha borrado el objetive" + node.toString() + "a" + this.toString());
+		return nodes.remove(node);
 	}
 
 	@Override

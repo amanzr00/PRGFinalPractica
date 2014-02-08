@@ -327,8 +327,8 @@ public class ArticulationTest {
 	
 	@Test
 	public void setLifeStrategy(){
-		node4.setLifeStrategy(new ThresholdLife(2));
-		node4.hurt(new Weapon(2));
-		assertThat(node4.getLife(), not(equalTo(2)));
+		node6.setLifeStrategy(new ThresholdLife(10));
+		node6.hurt(new Weapon(2));
+		assertThat(node6.getLife(), not(equalTo(8)));
 	}
 }

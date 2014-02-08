@@ -37,20 +37,29 @@ public class Extremity extends Node {
 	 */
 	public Extremity(Handler id, int life, LifeStrategy lifeStrategy) {
 		super(id);
-		log.info("Creacion de la Extremity.");
-		this.life = life;
-		this.lifeStrategy = lifeStrategy;
-
+		//Comprobamos la vida
+		if (life == 0) throw new InvalidLifeValueException("No puede crear un nodo de vida 0.");
+		setLife(life);
+		setLifeStrategy(lifeStrategy);
+		log.info("Creacion de Extremidad: " + id.toString());
 	}
 	
 	@Override
 	public boolean add(Node node) {
+		if(node == null){
+			log.error("Error en agregar un nodo, no se esta pasando un nodo");
+			throw new IllegalArgumentException("Me tienen que pasar un nodo para añadir.");
+		}
 		log.info("No se pueden agregar elementos a una extremidad");
 		return false;
 	}
 	
 	@Override
 	public boolean remove(Node node) {
+		if(node == null){
+			log.error("Error en agregar un nodo, no se esta pasando un nodo");
+			throw new IllegalArgumentException("Me tienen que pasar un nodo para añadir.");
+		}
 		log.info("No se puden eliminar elementos de una extremidad");
 		return false;
 	}
