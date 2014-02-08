@@ -29,6 +29,7 @@ public class Weapon implements Valorize {
 	 */
 	public Weapon(int power){
 		this.power = power;
+		log.info("Arma creada con" + this.power + "de potencia.");
 	}
 
 	/**
@@ -45,8 +46,14 @@ public class Weapon implements Valorize {
 	 * @throws InvalidPowerValueException si el valor establecido es menor que 0.
 	 */
 	public void setPower(int power) throws InvalidPowerValueException {
-		if(power < 0) throw new InvalidPowerValueException("El valor del poder del arma debe ser siempre superior a 0");
+		if(power < 0){
+			log.error("El poder del arma no puede establecerse menor que cero");
+			throw new InvalidPowerValueException("El valor del poder del arma debe ser siempre superior a 0");
+			
+		}
+		
 		this.power = power;
+		log.info("Poder del arma actualizado a " + power );
 	}
 	
 	public int getPrice(){

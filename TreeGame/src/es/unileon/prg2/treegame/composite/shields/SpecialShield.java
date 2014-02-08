@@ -35,9 +35,12 @@ public class SpecialShield extends Shield {
 	 */
 	public SpecialShield(Node target, int numAttacks) {
 		super(target);
-		if(numAttacks <= 0) throw new InvalidResistanceValueException("La resistencia de ataques ha de ser mayor que 0");
+		if(numAttacks <= 0) {
+			log.error("Se ha introducido una resistencia de ataques negativa");
+			throw new InvalidResistanceValueException("La resistencia de ataques ha de ser mayor que 0");
+		}
 		this.numAttacks = numAttacks;
-		log.info("SpecialShield creado");
+		log.info("SpecialShield creado en el nodo" + super.getId().toString() + "con resistencia" + this.numAttacks);
 	}
 	
 	@Override
@@ -45,9 +48,9 @@ public class SpecialShield extends Shield {
 		if(numAttacks > 0){
 			numAttacks--;
 			weapon.setPower(weapon.getPower()/2);
-			log.info("Ataques restantes disminuidos");
+			log.info("Ataques restantes disminuidos, quedan" + numAttacks);
 		}
-		log.info("Se ha destruido el escudo se atacara al nodo");
+		log.info("Se ha destruido el escudo, se atacara al nodo" + super.getId().toString());
 		return super.hurt(weapon);
 	}
 

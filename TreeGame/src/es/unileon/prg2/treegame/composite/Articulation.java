@@ -92,7 +92,6 @@ public class Articulation extends Node {
 
 	@Override
 	public String toString() {
-		log.info("Se convierte a string la Articulation.");
 		return getId().toString();
 	}
 
@@ -134,6 +133,7 @@ public class Articulation extends Node {
 			throw new InvalidLifeValueException("El valor de la vida debe ser igual o superior a 0.");
 		}
 		this.life = life;
+		log.info("Vida establecida con valor" + this.life);
 	}
 	
 	@Override
@@ -142,8 +142,9 @@ public class Articulation extends Node {
 			log.error("Es obligatorio que el nodo tenga una estrategia");
 			throw new IllegalArgumentException("La estrategia de la vida no puede ser nula.");
 		}
-		log.info("Estrategia establecida");
+
 		this.lifeStrategy = lifeStrategy;
+		log.info("Estrategia de tipo " + this.lifeStrategy.toString() + "establecida");
 	}
 
 

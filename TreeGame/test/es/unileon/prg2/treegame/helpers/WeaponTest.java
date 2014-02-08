@@ -69,7 +69,10 @@ public class WeaponTest {
 	 */
     @Test
 	public void contructorTest() {
-		Weapon weapon = new Weapon(5);
+    	Weapon weapon = new Weapon(5);
+		assertNotNull(weapon);
+		assertEquals(weapon.getPrice(), 5);
+		assertEquals(weapon.getPower(), 5);
 	}
 	
     /**

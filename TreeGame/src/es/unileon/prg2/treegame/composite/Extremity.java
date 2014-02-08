@@ -20,7 +20,7 @@ public class Extremity extends Node {
 	/**
 	 * Log
 	 */
-	static Logger log = Logger.getLogger(Articulation.class);
+	static Logger log = Logger.getLogger(Extremity.class);
 	/**
 	 * Vida del nodo.
 	 */
@@ -57,8 +57,8 @@ public class Extremity extends Node {
 	@Override
 	public boolean remove(Node node) {
 		if(node == null){
-			log.error("Error en agregar un nodo, no se esta pasando un nodo");
-			throw new IllegalArgumentException("Me tienen que pasar un nodo para añadir.");
+			log.error("Error en borrar un nodo, no se esta pasando un nodo");
+			throw new IllegalArgumentException("Me tienen que pasar un nodo para borrar.");
 		}
 		log.info("No se puden eliminar elementos de una extremidad");
 		return false;
@@ -66,14 +66,13 @@ public class Extremity extends Node {
 	
 	@Override
 	public String toString() {
-		log.info("Se convierte a string la extremidad.");
 		return getId().toString();
 	}
 	
 	@Override
 	public Node search(Handler id) {
 		if(getId().compareTo(id) == 0){
-			log.info("Devuelve el componente si son iguales.");
+			log.info("Componente encontrado, su id es:" + id.toString());
 			return this;
 		}
 		return null;
@@ -82,14 +81,14 @@ public class Extremity extends Node {
 	@Override
 	public int hurt(Weapon weapon) {
 		setLife(lifeStrategy.calculateLife(this.life, weapon));
-		log.info("Danio realizado");
+		log.info("Daño realizado con una potencia de" + weapon.getPower());
 		return weapon.getPower();
 	}
 	
 	@Override
 	public int getFinalScore() {
 		if(isAlive()){
-			log.info("Puntuacion obtenida");
+			log.info("Puntuacion obtenida, este nodo tiene" + this.life + 10);
 			return this.life + 10;
 		}
 		return 0;
@@ -106,8 +105,8 @@ public class Extremity extends Node {
 			log.error("La vida se ha de establecer a un valor mayor que cero");
 			throw new InvalidLifeValueException("El valor de la vida debe ser igual o superior a 0.");
 		}
-		log.info("Vida establecida");
 		this.life = life;
+		log.info("Vida establecida con valor" + this.life);
 	}
 	
 	@Override
@@ -116,7 +115,7 @@ public class Extremity extends Node {
 			log.error("Se ha de establecer una estrategia por nodo");
 			throw new IllegalArgumentException("La estrategia de la vida no puede ser nula.");
 		}
-		log.info("Estrategia establecida");
+		log.info("Estrategia de tipo " + this.lifeStrategy.toString() + "establecida");
 		this.lifeStrategy = lifeStrategy;
 	}
 

@@ -22,7 +22,7 @@ public class StaticShield extends Shield {
 	/**
 	 * Log
 	 */
-	static Logger log = Logger.getLogger(SpecialShield.class);
+	static Logger log = Logger.getLogger(StaticShield.class);
 	
 	private int resistance;
 	
@@ -33,9 +33,12 @@ public class StaticShield extends Shield {
 	 */
 	public StaticShield(Node target, int resistance){
 		super(target);
-		if (resistance <= 0) throw new InvalidResistanceValueException("La resistencia ha de ser mayor de 0");
-		log.info("StaticShield creado.");
+		if (resistance <= 0){
+			log.error("Se ha introducido una resistencia negativa");
+			throw new InvalidResistanceValueException("La resistencia ha de ser mayor de 0");
+		}
 		this.resistance = resistance;
+		log.info("StaticShield creado en el nodo" + super.getId().toString() + "con resistencia" + this.resistance);
 	}
 	
 	 @Override

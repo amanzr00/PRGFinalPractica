@@ -30,9 +30,13 @@ public class SimpleShield extends Shield {
 	 */
 	public SimpleShield(Node target, int resistance) {
 		super(target);
-		log.info("SimpleShield creado");
-		if(resistance <= 0) throw new InvalidResistanceValueException("La resistencia ha de ser mayor de 0");
+		if(resistance <= 0){
+			log.error("Valor negativo introducido en la resistencia");
+			throw new InvalidResistanceValueException("La resistencia ha de ser mayor de 0");
+		}
+			
 		this.resistance = resistance;
+		log.info("SimpleShield creado en el nodo" + super.getId().toString() + "con resistencia" + this.resistance);
 	}
 
 	@Override
@@ -40,12 +44,12 @@ public class SimpleShield extends Shield {
 		if (weapon.getPower() >= this.resistance){
 			weapon.setPower(weapon.getPower() - this.resistance);
 			this.resistance = 0;
-			log.info("Se ha atacado con potencia mayor o igual que la resistencia");
+			log.info("Se ha atacado con potencia"+ weapon.getPower() + "que es mayor o igual que la resistencia");
 			return super.hurt(weapon);
 		} else {
 			this.resistance = this.resistance - weapon.getPower();
 			weapon.setPower(0);
-			log.info("Se ha atacado con potencia menor que la resistencia");
+			log.info("Se ha atacado con potencia" + weapon.getPower() + "que es menor que la resistencia");
 			return 0;
 		}
 	}
