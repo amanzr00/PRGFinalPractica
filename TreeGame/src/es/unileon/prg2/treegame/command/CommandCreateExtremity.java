@@ -8,14 +8,14 @@ import es.unileon.prg2.treegame.helpers.Credit;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 /**
- * Comando para crear una extremidad
+ * Comando para crear una extremity
  * @author Alberto Manzano
  * @author Ivan Montes
  * @author Pablo Díez
  * @author Andrea San Ramon
  * @version 1.0
  */
-public class CommandCreateExtremity {
+public class CommandCreateExtremity implements Command{
 
 	private Node tree;
 	
@@ -45,9 +45,7 @@ public class CommandCreateExtremity {
 		
 	}
 	
-	/**
-	 * Metodo que ejecuta el comando
-	 */
+	@Override
 	public void execute(){
 		
 		// si el padre no existe excepcion

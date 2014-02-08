@@ -15,7 +15,7 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
  * @author Andrea San Ramon
  * @version 1.0
  */
-public class CommandCreateArticulation {
+public class CommandCreateArticulation implements Command {
 
 	private Node tree;
 	
@@ -43,9 +43,7 @@ public class CommandCreateArticulation {
 		this.lifeStrategy = new DefaultLife();
 	}
 	
-	/**
-	 * Metodo que ejecuta el comando
-	 */
+	@Override
 	public void execute(){
 		// Buscamos el nodo padre
 		Node parentNode = tree.search(parentId);
