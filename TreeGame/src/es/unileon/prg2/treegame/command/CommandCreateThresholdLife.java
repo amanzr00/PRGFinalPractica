@@ -9,23 +9,23 @@ public class CommandCreateThresholdLife {
 	private Node nodeTarget;
 	private LifeStrategy thresholdLife;
 	private Credit credit;
-	private int threshold;
 	
-	public CommandCreateThresholdLife(Node nodeTarget, LifeStrategy thresholdLife, Credit credit, int threshold){
+	
+	public CommandCreateThresholdLife(Node nodeTarget, LifeStrategy thresholdLife, Credit credit){
 		this.nodeTarget = nodeTarget;
 		this.thresholdLife = thresholdLife;
 		this.credit = credit;
-		this.threshold = threshold;
+		
 	}
 	
 	public void execute(){
 		if(nodeTarget.search(nodeTarget.getId()) == null)
 			throw new IllegalArgumentException("Se ha de pasar un nodo existenete al que aplicarle la estrategia.");
-		if((credit.getCredit() <= 0) || (credit.getCredit() <  ))
+		if((credit.getCredit() <= 0) || (credit.getCredit() < thresholdLife.getPrice()))
 			throw new IllegalArgumentException("No se dispone de credito suficiente");
 		
-		nodeTarget.setLifeStrategy(halfLife);
-		credit.setCredit(nodeTarget.getLife()*2);
+		nodeTarget.setLifeStrategy(thresholdLife);
+		credit.buyObject(nodeTarget);
 	
 	}
 }

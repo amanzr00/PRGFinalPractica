@@ -1,4 +1,5 @@
 package es.unileon.prg2.treegame.strategy;
+
 import es.unileon.prg2.treegame.helpers.Weapon;
 
 /**
@@ -9,12 +10,17 @@ import es.unileon.prg2.treegame.helpers.Weapon;
  * @author Andrea San Ramon
  *
  */
-public class DefaultLife implements LifeStrategy{
+public class DefaultLife extends LifeStrategy{
 
 	@Override
 	public int calculateLife(int life, Weapon weapon) {
 		int lifeResult = Math.max(0, life - weapon.getPower());
 		weapon.setPower(Math.max(0, weapon.getPower() - life));
 		return lifeResult;
+	}
+
+	@Override
+	public int getPrice() {
+		return 0;
 	}
 }

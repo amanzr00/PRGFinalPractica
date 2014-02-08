@@ -11,7 +11,7 @@ import es.unileon.prg2.treegame.exceptions.InvalidPowerValueException;
  * @author Andrea San Ramon
  * @version 1.0
  */
-public class Weapon {
+public class Weapon implements Valorize {
 
 	/**
 	 * Log
@@ -47,5 +47,9 @@ public class Weapon {
 	public void setPower(int power) throws InvalidPowerValueException {
 		if(power < 0) throw new InvalidPowerValueException("El valor del poder del arma debe ser siempre superior a 0");
 		this.power = power;
+	}
+	
+	public int getPrice(){
+		return getPower();
 	}
 }

@@ -38,8 +38,8 @@ public class Credit {
 	 * @param cost
 	 * @throws InvalidCreditValueException
 	 */
-	public void setCredit(int cost) throws InvalidCreditValueException{
-		if (cost > totalCredit) throw new InvalidCreditValueException ("El credito total ha de ser mayor que el precio del objeto");
-		this.totalCredit = totalCredit - cost;
+	public void buyObject(Valorize object) throws InvalidCreditValueException{
+		if (object.getPrice() > totalCredit) throw new InvalidCreditValueException ("El credito total ha de ser mayor que el precio del objeto");
+		this.totalCredit = totalCredit - object.getPrice();
 	}
 }

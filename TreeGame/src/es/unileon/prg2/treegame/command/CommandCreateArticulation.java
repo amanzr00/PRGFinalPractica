@@ -17,7 +17,7 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
  */
 public class CommandCreateArticulation {
 
-	private Node tree, childNode, parentNode;
+	private Node tree;
 	
 	private Handler newNodeId;
 	
@@ -47,24 +47,21 @@ public class CommandCreateArticulation {
 	 * Metodo que ejecuta el comando
 	 */
 	public void execute(){
-		// si el padre no existe excepcion
-		if(tree.search(parentId) == null)
+		// Buscamos el nodo padre
+		Node parentNode = tree.search(parentId);
+		if(parentNode == null)
 			throw new IllegalArgumentException("Me tienen que pasar un padre que exista");
 		// si está el nuevo excepción
 		if(tree.search(newNodeId) != null)
 			throw new IllegalArgumentException("El nodo ya existe");
-		// compruebo credito, si no excepcion
-		if((credit.getCredit() <= 0) || (credit.getCredit() < life )) 
-			throw new IllegalArgumentException("No se dispone de credito suficiente");
+		
 		
 		// Si llega aqui, es porque el padre existe, no hay problemas con el credito ni con el nodo nuevo
 		// Creamos el nodo
-		childNode = new Articulation(newNodeId, life, lifeStrategy);
-		// Buscamos el nodo padre
-		parentNode = tree.search(parentId);
+		Node childNode = new Articulation(newNodeId, life, lifeStrategy);
 		// Anadimos el nodo hijo al padre
 		parentNode.add(childNode);
 		// Cobramos el precio
-		credit.setCredit(life);
+		credit.buyObject(childNode);
 	}
 }

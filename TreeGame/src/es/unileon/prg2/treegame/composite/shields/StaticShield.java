@@ -48,4 +48,9 @@ public class StaticShield extends Shield {
 			return 0;
 		}
 	}
+
+	@Override
+	public int getPrice() {
+		return this.resistance * 10;
+	}
 }

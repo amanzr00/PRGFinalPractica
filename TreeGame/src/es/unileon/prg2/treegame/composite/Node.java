@@ -1,6 +1,7 @@
 package es.unileon.prg2.treegame.composite;
 
 import es.unileon.prg2.treegame.handler.Handler;
+import es.unileon.prg2.treegame.helpers.Valorize;
 import es.unileon.prg2.treegame.helpers.Weapon;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
@@ -13,7 +14,7 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
  * @author Andrea San Ramon
  * @version 1.0
  */
-public abstract class Node {
+public abstract class Node implements Valorize {
 
 	/**
 	 * Identificador del nodo.

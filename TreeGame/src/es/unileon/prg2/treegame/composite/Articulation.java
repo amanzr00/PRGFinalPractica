@@ -145,4 +145,11 @@ public class Articulation extends Node {
 		log.info("Estrategia establecida");
 		this.lifeStrategy = lifeStrategy;
 	}
+
+
+
+	@Override
+	public int getPrice() {
+		return getLife();
+	}
 }

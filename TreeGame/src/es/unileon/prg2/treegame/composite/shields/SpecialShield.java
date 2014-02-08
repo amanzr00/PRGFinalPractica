@@ -48,4 +48,9 @@ public class SpecialShield extends Shield {
 		log.info("Se ha destruido el escudo se atacara al nodo");
 		return super.hurt(weapon);
 	}
+
+	@Override
+	public int getPrice() {
+		return this.numAttacks *10;
+	}
 }

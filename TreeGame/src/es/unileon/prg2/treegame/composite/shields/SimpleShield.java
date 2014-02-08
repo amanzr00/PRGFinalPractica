@@ -47,4 +47,9 @@ public class SimpleShield extends Shield {
 			return 0;
 		}
 	}
+
+	@Override
+	public int getPrice() {
+		return this.resistance;
+	}
 }
