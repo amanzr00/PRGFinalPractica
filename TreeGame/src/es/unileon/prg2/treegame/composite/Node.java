@@ -27,6 +27,7 @@ public abstract class Node implements Valorize {
 	 * @param id identificador del nodo pasado.
 	 */
 	public Node(Handler id){
+		if(id == null) throw new IllegalArgumentException("El identificador no puede ser nulo.");
 		this.id = id;
 	}
 	

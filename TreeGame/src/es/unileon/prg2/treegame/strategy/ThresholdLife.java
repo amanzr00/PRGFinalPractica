@@ -1,4 +1,5 @@
 package es.unileon.prg2.treegame.strategy;
+
 import es.unileon.prg2.treegame.helpers.Weapon;
 
 /**
@@ -9,8 +10,12 @@ import es.unileon.prg2.treegame.helpers.Weapon;
  * @author Pablo Díez
  * @author Andrea San Ramon
  */
+<<<<<<< HEAD
 public class ThresholdLife extends LifeStrategy{
 	
+=======
+public class ThresholdLife implements LifeStrategy{
+>>>>>>> Added Extremity tests
 	private int threshold;
 
 	/**

@@ -22,7 +22,7 @@
 	<property name="paquete" value="es.unileon.prg2.treegame"/>
 	
 	<property name="l4j" value="log4j-1.2.17.jar" />
-	<property name="junit" value="junit-4.10.jar" />
+	<property name="junit" value="junit-4.5.jar" />
 
 	<!-- Conjunto de paths usados por el target de ejecutar los tests.-->
 	<path id="test.classpath">

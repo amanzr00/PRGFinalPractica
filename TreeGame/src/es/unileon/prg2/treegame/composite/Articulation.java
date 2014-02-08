@@ -42,8 +42,12 @@ public class Articulation extends Node {
 	 */
 	public Articulation(Handler id,int life, LifeStrategy lifeStrategy) {
 		super(id);
-		setLife(life);
+		//Comprobamos la vida
+		if (life == 0) throw new InvalidLifeValueException("No puede crear un nodo de vida 0.");
+		else setLife(life);
+		//Establecemos la estrategia.
 		setLifeStrategy(lifeStrategy);
+		//Creamos los nodos
 		this.nodes = new ArrayList<Node>();
 		log.info("Creacion de Articulation " + id.toString());
 	}
@@ -57,8 +61,10 @@ public class Articulation extends Node {
 			throw new IllegalArgumentException("Me tienen que pasar un nodo para añadir.");
 		}
 		log.info("Se ha anyadido el objetive" + objetive.toString() + "a" + this.toString());
-		return nodes.add(objetive);
-		
+		if(!nodes.contains(objetive)){
+			return nodes.add(objetive);
+		}
+		return false;
 	}
 
 	@Override
@@ -78,7 +84,7 @@ public class Articulation extends Node {
 		}
 		for(Node objetive : nodes){
 			Node searchComponent = objetive.search(id);
-			if(searchComponent != null) return objetive;
+			if(searchComponent != null) return searchComponent;
 			log.info("Busqueda del componente de" + objetive.toString() + "en" + this.toString());
 		}
 		return null;
@@ -88,20 +94,17 @@ public class Articulation extends Node {
 	public String toString() {
 		log.info("Se convierte a string la Articulation.");
 		return getId().toString();
-		
 	}
 
 	@Override
 	public int hurt(Weapon weapon) {
-		
-		// DUDA (break)
 		for(Node node : nodes){
 			if(node.isAlive()){
 				if(node.hurt(weapon) == 0) break;
 			}
 		}
 		if(weapon.getPower() > 0) setLife(this.lifeStrategy.calculateLife(life, weapon));
-		log.info("Danio realizado.");
+		log.info("Daño realizado.");
 		return weapon.getPower();
 	}
 
@@ -111,9 +114,8 @@ public class Articulation extends Node {
 			int totalLifeChild = 0;
 			for (Node node : nodes){
 				totalLifeChild = totalLifeChild + node.getFinalScore();
-				log.info("Nodos recorridos");
 			}
-			log.info("Vida total calculada.");
+			log.info("Vida total: " + this.life + 10 + totalLifeChild);
 			return this.life + 10 + totalLifeChild;
 			
 		}
@@ -122,17 +124,15 @@ public class Articulation extends Node {
 
 	@Override
 	public int getLife() {
-		log.info("Vida obtenida");
 		return this.life;
 	}
 
 	@Override
 	public void setLife(int life) {
 		if(life < 0){
-			log.error("La vida no puede ser negativa.");
+			log.error("La vida no puede ser negativa ni 0.");
 			throw new InvalidLifeValueException("El valor de la vida debe ser igual o superior a 0.");
 		}
-		log.info("Vida establecida.");
 		this.life = life;
 	}
 	
