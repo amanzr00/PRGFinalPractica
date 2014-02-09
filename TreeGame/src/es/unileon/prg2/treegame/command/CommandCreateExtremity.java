@@ -5,6 +5,7 @@ import es.unileon.prg2.treegame.composite.Extremity;
 import es.unileon.prg2.treegame.composite.Node;
 import es.unileon.prg2.treegame.handler.Handler;
 import es.unileon.prg2.treegame.helpers.Credit;
+import es.unileon.prg2.treegame.strategy.DefaultLife;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 /**
@@ -42,6 +43,7 @@ public class CommandCreateExtremity implements Command{
 		this.newNodeId = newNodeId;
 		this.parentId = parentId;
 		this.life = life;
+		this.lifeStrategy = new DefaultLife();
 		
 	}
 	
