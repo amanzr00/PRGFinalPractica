@@ -26,7 +26,7 @@ public class CommandCreateSpecialShield implements Command {
 	 * @param credit
 	 * @param numAttacks
 	 */
-	public CommandCreateSpecialShield(int resistance, Node nodeTarget, Credit credit, int numAttacks){
+	public CommandCreateSpecialShield( Node nodeTarget, Credit credit, int numAttacks){
 		this.nodeTarget = nodeTarget;
 		this.credit = credit;
 		this.numAttacks = numAttacks;
