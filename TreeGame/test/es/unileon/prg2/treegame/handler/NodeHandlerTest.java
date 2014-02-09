@@ -20,25 +20,31 @@ public class NodeHandlerTest {
 	}
 
 	/**
-	 * Test para comprobar que se comparan correctamente los identificadores
+	 * Test del contructor
 	 */
 	@Test
-	public void testcompareTo() {
-		// Comparamos dos identificadores diferentes. Resultado: -1
-		assertEquals(this.number1.toString().compareTo(number2.toString()), -1);
-		// Comparamos dos identificadores iguales: Resultado: 0
-		assertEquals(this.number3.toString().compareTo(number3.toString()), 0);
-		
+	public void testConstructor(){
+		NodeHandler nodehandler = new NodeHandler(id);
+		assertNotNull(nodehandler);		
 	}
 	
 	/**
-	 * 
+	 * Test para comprobar que se comparan correctamente los identificadores
+	 * Si devuelve -1, significa que no es el mismo
+	 * Si devuleve 0, es el mismo
+	 */
+	@Test
+	public void testCompareTo() {
+		assertEquals(this.number1.toString().compareTo(number2.toString()), -1);
+		assertEquals(this.number3.toString().compareTo(number3.toString()), 0);		
+	}
+	
+	/**
+	 * Test para pasar a String el Handler
 	 */
 	@Test
 	public void testToString() {
 		assertEquals(this.number1.toString(), "1");
-		assertEquals(this.number2.toString(), "2");
-		
+		assertEquals(this.number2.toString(), "2");		
 	}
-
 }
