@@ -5,6 +5,8 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+
+import es.unileon.prg2.treegame.command.CommandAttackTest;
 import es.unileon.prg2.treegame.command.CommandCreateArticulationTest;
 import es.unileon.prg2.treegame.command.CommandCreateExtremityTest;
 import es.unileon.prg2.treegame.command.CommandCreateHalfLifeTest;
@@ -44,6 +46,7 @@ import es.unileon.prg2.treegame.strategy.ThresholdLifeTest;
 	CreditTest.class, CommandCreateHalfLifeTest.class, 
 	CommandCreateSimpleShieldTest.class, CommandCreateSpecialShieldTest.class,
 	CommandCreateStaticShieldTest.class, CommandCreateThresholdLifeTest.class,
+	CommandAttackTest.class,
 	})
 
 public class SuiteTests {

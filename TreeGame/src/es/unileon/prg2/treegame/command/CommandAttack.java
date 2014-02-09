@@ -15,7 +15,7 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 public class CommandAttack implements Command{
 
 	private Weapon weapon;
-	private Node nodeTarget;
+	private Node tree, nodeTarget;
 	private Credit credit;
 	/**
 	 * Constructor
@@ -23,15 +23,16 @@ public class CommandAttack implements Command{
 	 * @param nodeTarget
 	 * @param credit
 	 */
-	public CommandAttack(Weapon weapon, Node nodeTarget, Credit credit){
+	public CommandAttack(Node tree, Weapon weapon, Node nodeTarget, Credit credit){
+		this.tree = tree;
 		this.weapon = weapon;
 		this.nodeTarget = nodeTarget;
 		this.credit = credit;
 	}
 	@Override
 	public void execute(){
-		if(nodeTarget.search(nodeTarget.getId()) == null)
-			throw new IllegalArgumentException("Se ha de pasar un nodo existenete al que atacar");
+		if(tree.search(nodeTarget.getId()) == null)
+			throw new IllegalArgumentException("Se ha de pasar un nodo existente al que atacar");
 		nodeTarget.hurt(weapon);
 		credit.buyObject(weapon);
 	}
