@@ -57,7 +57,7 @@
 		<echo message="----TEST COMPILATION SUCCESSFUL----" file="${conf}/ant.log"/>
 	</target>
 
-	<!-- Realiza la documentacion de la aplicación de la tiendaonline.-->
+	<!-- Realiza la documentacion de la aplicación .-->
 	<target name="doc">
 		<mkdir dir="${doc}"/>
 
@@ -70,11 +70,11 @@
 	<target name="dist">
 		<mkdir dir="${dist}"/>
 
-		<jar jarfile="${dist}/${dist.name}" basedir="${classes}" compress="true" manifest="${dist}/MANIFEST.MF"/>
+		<jar jarfile="${dist}/${dist.name}" basedir="${classes}" compress="true"/>
 		<echo message="----DIST GENERATED SUCCESSFULLY----" file="${conf}/ant.log"/>
 	</target>
 
-	<!-- Ejecuta la suite de tests de la tienda online.-->
+	<!-- Ejecuta la suite de tests de la aplicacion.-->
 	<target name = "run-test">
 		<junit fork = "yes" printsummary="false" haltonfailure="true" showoutput="false" filtertrace="true">
 			<test name = "${paquete}.SuiteTests" />
@@ -84,21 +84,11 @@
 		<echo message="----TESTS EXECUTED----" file="${conf}/ant.log"/>
 	</target>
 
-	<!-- Realiza el primer modo de ejecucion de la tienda online.-->
-	<target name="run">
-		<java failonerror="true" classname="${paquete}.Main" fork = "true">
-			 <classpath>
-				  <pathelement path = "${classes}"/>
-				  <pathelement path = "${lib}"/>
-				  <pathelement path = "${lib}/${junit}" />
-				  <pathelement path = "${lib}/${l4j}" />
-			 </classpath>
-		</java>
-		<echo message="----RUN FINISHED----" file="${conf}/ant.log"/>
-	</target>
+	<!-- Realiza el primer modo de ejecucion de la aplicacion.-->
+	
 	
 	<!-- Realiza todo los pasos necesarios para que se ejecute tanto compilar, los tests y la documentacion.-->
-	<target name="all" depends="compile, doc, run-test, run">
+	<target name="all" depends="compile, doc, run-test">
 	</target>
 		
 </project>
