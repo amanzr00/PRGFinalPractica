@@ -20,7 +20,7 @@ public class CommandCreateExtremityTest {
 	private Handler newNodeId, parent, parent1;
 	private Node node1, node2;
 	private LifeStrategy strategy;
-	private Credit credito;
+	private Credit credit;
 	private CommandCreateExtremity newCreated;
 	
 	@Before
@@ -34,7 +34,7 @@ public class CommandCreateExtremityTest {
 		this.node1 = new Articulation(parent, 4, strategy);
 		this.node2 = new Extremity(newNodeId, 10, strategy);
 		
-		this.credito = new Credit (100);
+		this.credit = new Credit (100);
 		
 		/* Arbol */
 		
@@ -46,7 +46,7 @@ public class CommandCreateExtremityTest {
 	@Test
 	public void constructorTest(){
 		
-		CommandCreateArticulation newCreated1 = new CommandCreateArticulation (this.credito, node1, this.parent, this.newNodeId, 10);
+		CommandCreateArticulation newCreated1 = new CommandCreateArticulation (this.credit, node1, this.parent, this.newNodeId, 10);
 		
 		assertNotNull(newCreated1);
 		
@@ -61,7 +61,7 @@ public class CommandCreateExtremityTest {
 		this.parent1 = new NodeHandler(3);
 		Handler newChild = new NodeHandler(4);
 		
-		this.newCreated = new CommandCreateExtremity(this.credito, node1, this.parent1, newChild, 10);
+		this.newCreated = new CommandCreateExtremity(this.credit, node1, this.parent1, newChild, 10);
 		this.newCreated.execute();
 		
 	}
@@ -72,7 +72,7 @@ public class CommandCreateExtremityTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void executeExceptionNewIdExist(){
 		
-		this.newCreated = new CommandCreateExtremity (this.credito, node1, this.parent, this.newNodeId, 10);
+		this.newCreated = new CommandCreateExtremity (this.credit, node1, this.parent, this.newNodeId, 10);
 		this.newCreated.execute();
 	}
 	
