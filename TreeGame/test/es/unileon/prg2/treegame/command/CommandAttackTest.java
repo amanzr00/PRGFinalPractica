@@ -17,7 +17,7 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 public class CommandAttackTest {
 
-	private Weapon weapon1, weapon2, weapon3;
+	private Weapon weapon1, weapon3;
 	private Node node1, node2, nodeTarget;
 	private Credit credit, credit2;
 	private Handler id1, id2, id3;
@@ -40,7 +40,6 @@ public class CommandAttackTest {
 		this.node1.add(node2);
 		
 		this.weapon1 = new Weapon(5);
-		this.weapon2 = new Weapon(10);
 		this.weapon3 = new Weapon(15);
 		
 		this.credit = new Credit (50);
@@ -81,8 +80,6 @@ public class CommandAttackTest {
 	@Test
 	public void attackExistNode(){
 		CommandAttack newAttack = new CommandAttack (node1, weapon1, node2, credit);
-		
-		
 		
 		newAttack.execute();
 		

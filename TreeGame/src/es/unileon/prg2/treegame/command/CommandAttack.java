@@ -29,11 +29,13 @@ public class CommandAttack implements Command{
 		this.nodeTarget = nodeTarget;
 		this.credit = credit;
 	}
+	
 	@Override
 	public void execute(){
 		if(tree.search(nodeTarget.getId()) == null)
 			throw new IllegalArgumentException("Se ha de pasar un nodo existente al que atacar");
+		this.credit.buyObject(weapon);
 		nodeTarget.hurt(weapon);
-		credit.buyObject(weapon);
+		
 	}
 }
