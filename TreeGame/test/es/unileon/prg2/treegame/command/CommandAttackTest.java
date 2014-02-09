@@ -86,8 +86,8 @@ public class CommandAttackTest {
 		
 		newAttack.execute();
 		
-		assertEquals(credit.getCredit(), 45);
 		assertEquals(node2.getLife(), 5);
+		assertEquals(credit.getCredit(), 45);
 		
 	}
 	

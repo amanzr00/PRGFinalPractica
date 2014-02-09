@@ -94,18 +94,6 @@ public class WeaponTest {
 	}
 	
 	/**
-	 * Test para que el poder del arma sea 0 y despues de recarge 
-	 */
-	@Test
-	public void testWeaponToZeroAndReloadWeapon(){
-		assertEquals(this.weapon2.getPower(), 4);
-		this.node4.hurt(weapon2);
-		assertEquals(this.weapon2.getPower(), 0);
-		weapon2.setPower(10);
-		assertEquals(this.weapon2.getPower(), 10);
-	}
-	
-	/**
 	 * Test para que el poder del arma sea 0
 	 */
 	@Test
@@ -115,17 +103,6 @@ public class WeaponTest {
 		assertEquals(this.weapon1.getPower(), 0);
 	}
 
-	/**
-	 * Test que dispara y recarga el arma
-	 */
-	@Test 
-	public void testShootAndReloadWeapon(){
-		assertEquals(this.weapon3.getPower(), 10);
-		node4.hurt(weapon3);
-		assertEquals(this.weapon3.getPower(), 6);
-		weapon3.setPower(16);
-		assertEquals(this.weapon3.getPower(), 16);
-	}
 	
 	/**
 	 * Test que permite disparar dos veces porque tiene potencia
