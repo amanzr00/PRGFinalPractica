@@ -123,4 +123,10 @@ public class Extremity extends Node {
 	public int getPrice() {
 		return getLife();
 	}
+	
+	@Override
+	public LifeStrategy getLifeStrategy() {
+		
+		return this.lifeStrategy;
+	}
 }

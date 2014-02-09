@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import es.unileon.prg2.treegame.composite.Node;
 import es.unileon.prg2.treegame.exceptions.InvalidResistanceValueException;
 import es.unileon.prg2.treegame.helpers.Weapon;
+import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 /**
  * Escudo estático con valor permanente ataque tras ataque. El arma con la que se ataca disminuye su potencia en una cantidad igual
@@ -57,5 +58,11 @@ public class StaticShield extends Shield {
 	@Override
 	public int getPrice() {
 		return this.resistance * 10;
+	}
+
+	@Override
+	public LifeStrategy getLifeStrategy() {
+		
+		return null;
 	}
 }

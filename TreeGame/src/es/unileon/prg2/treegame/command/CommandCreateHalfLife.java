@@ -15,7 +15,7 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 public class CommandCreateHalfLife implements Command {
 	
-	private Node nodeTarget;
+	private Node tree, nodeTarget;
 	private LifeStrategy halfLife;
 	private Credit credit;
 	/**
@@ -24,14 +24,15 @@ public class CommandCreateHalfLife implements Command {
 	 * @param halfLife
 	 * @param credit
 	 */
-	public CommandCreateHalfLife(Node nodeTarget, LifeStrategy halfLife, Credit credit){
+	public CommandCreateHalfLife(Node tree, Node nodeTarget, LifeStrategy halfLife, Credit credit){
+		this.tree = tree;
 		this.nodeTarget = nodeTarget;
 		this.halfLife = halfLife;
 		this.credit = credit;
 	}
 	@Override
 	public void execute(){
-		if(nodeTarget.search(nodeTarget.getId()) == null)
+		if(tree.search(nodeTarget.getId()) == null)
 			throw new IllegalArgumentException("Se ha de pasar un nodo existenete al que aplicarle la estrategia.");
 		nodeTarget.setLifeStrategy(halfLife);
 		credit.buyObject(halfLife);

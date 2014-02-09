@@ -108,4 +108,10 @@ public abstract class Node implements Valorize {
 	 * @param lifeStrategy La estrategia a establecer.
 	 */
 	public abstract void setLifeStrategy(LifeStrategy lifeStrategy);
+	
+	/**
+	 * Permite obtener la estrategia de vida del nodo
+	 * @return el tipo de estrategia
+	 */
+	public abstract LifeStrategy getLifeStrategy();
 }

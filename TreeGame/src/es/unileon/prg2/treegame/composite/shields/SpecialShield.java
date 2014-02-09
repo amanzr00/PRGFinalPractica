@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import es.unileon.prg2.treegame.composite.Node;
 import es.unileon.prg2.treegame.exceptions.InvalidResistanceValueException;
 import es.unileon.prg2.treegame.helpers.Weapon;
+import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 /**
  * Escudo especial que soporta un determinado número de ataques y resta la mitad del
@@ -57,5 +58,11 @@ public class SpecialShield extends Shield {
 	@Override
 	public int getPrice() {
 		return this.numAttacks *10;
+	}
+
+	@Override
+	public LifeStrategy getLifeStrategy() {
+		
+		return null;
 	}
 }

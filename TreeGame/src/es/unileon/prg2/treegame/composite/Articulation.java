@@ -153,4 +153,10 @@ public class Articulation extends Node {
 	public int getPrice() {
 		return getLife();
 	}
+	
+	@Override
+	public LifeStrategy getLifeStrategy() {
+		
+		return this.lifeStrategy;
+	}
 }

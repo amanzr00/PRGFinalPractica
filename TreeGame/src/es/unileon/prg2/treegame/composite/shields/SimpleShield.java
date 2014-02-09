@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import es.unileon.prg2.treegame.composite.Node;
 import es.unileon.prg2.treegame.exceptions.InvalidResistanceValueException;
 import es.unileon.prg2.treegame.helpers.Weapon;
+import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 /**
  * Escudo simple que protege con un valod de daño concreto.
@@ -57,5 +58,11 @@ public class SimpleShield extends Shield {
 	@Override
 	public int getPrice() {
 		return this.resistance;
+	}
+
+	@Override
+	public LifeStrategy getLifeStrategy() {
+		
+		return null;
 	}
 }
