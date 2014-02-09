@@ -15,6 +15,7 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
 import es.unileon.prg2.treegame.strategy.ThresholdLife;
 
 /**
+ * Test de la clase Articulation
  * @author Alberto Manzano
  * @author Iván Montes
  * @author Pablo Díez
@@ -62,6 +63,9 @@ public class ArticulationTest {
 		this.node3.add(node5);
 	}
 	
+	/**
+	 * Test del constructor
+	 */
 	@Test
 	public void constructorTest(){
 		Articulation articulation = new Articulation(this.id1, 5, this.strategy1);
@@ -70,26 +74,41 @@ public class ArticulationTest {
 		assertEquals(articulation.getLife(), 5);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede establecer una vida negativa
+	 */
 	@Test(expected = InvalidLifeValueException.class)
 	public void constructorExceptionLife(){
 		new Articulation(this.id1, -3, this.strategy1);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede establecer una vida igual a 0
+	 */
 	@Test(expected = InvalidLifeValueException.class)
 	public void constructorExceptionLifeZero(){
 		new Articulation(this.id1, 0, this.strategy1);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede establecer una estrategia nula
+	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void constructorExceptionNullStrategy(){
 		new Articulation(this.id1, 5, null);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede establecer un nodo nulo
+	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void constructorExceptionNullId(){
 		new Articulation(null, 5, strategy1);
 	}
 	
+	/**
+	 * Test para comprobar que se agregan bien los nodos
+	 */
 	@Test
 	public void addNode(){
 		Articulation articulation = new Articulation(this.id8, 5, strategy1);
@@ -97,6 +116,9 @@ public class ArticulationTest {
 		assertNotNull(node1.search(id8));
 	}
 	
+	/**
+	 * Test para comprobar que no se puede agregar el mismo nodo mas de una vez
+	 */
 	@Test
 	public void addNodeTwice(){
 		Node articulation = new Articulation(this.id8, 5, strategy1);
@@ -105,11 +127,17 @@ public class ArticulationTest {
 		assertNotNull(node1.search(id8));
 	}
 	
+	/**
+	 * Test para comprobar que no se puede agregar un nodo nulo
+	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void addNull(){
 		node1.add(null);
 	}
 	
+	/**
+	 * Test para comprobar que se eliminan bien los nodos
+	 */
 	@Test
 	public void removeNode(){
 		assertNotNull(node1.search(id3));
@@ -117,6 +145,9 @@ public class ArticulationTest {
 		assertNull(node1.search(id3));
 	}
 	
+	/**
+	 * Test para comprobar que no se puede eliminar un nodo que ya ha sido borrado
+	 */
 	@Test
 	public void removeNodeTwice(){
 		assertNotNull(node1.search(id3));
@@ -126,11 +157,17 @@ public class ArticulationTest {
 		assertNull(node1.search(id3));
 	}
 	
+	/**
+	 * Test para comprobar que no se puede eliminar un nodo nulo
+	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void removeNull(){
 		node1.remove(null);
 	}
 	
+	/**
+	 * Test para comprobar que la busqueda es correcta
+	 */
 	@Test
 	public void searchFoundFirstChildNode(){
 		Node node = node1.search(id2);
@@ -138,6 +175,9 @@ public class ArticulationTest {
 		assertEquals(node.getId(), id2);
 	}
 	
+	/**
+	 * Test para comprobar que la busqueda es correcta
+	 */
 	@Test
 	public void searchFoundDeepChildNode(){
 		Node node = node1.search(id5);
@@ -145,6 +185,9 @@ public class ArticulationTest {
 		assertEquals(node.getId(), id5);
 	}
 	
+	/**
+	 * Test para comprobar que la busqueda es correcta
+	 */
 	@Test
 	public void searchFoundSelfNode(){
 		Node node = node1.search(id1);
@@ -153,18 +196,26 @@ public class ArticulationTest {
 		assertEquals(node.getId(), id1);
 	}
 	
+	/**
+	 * Test para comprobar que la busqueda de un nodo por id es correcta
+	 */
 	@Test
 	public void searchNotFound(){
 		assertNull(node1.search(id8));
 	}
 	
-	
+	/**
+	 * Test para comprobar que convierte el id a String de forma correcta
+	 */
 	@Test
 	public void toStringTest(){
 		assertEquals(node1.toString(), id1.toString());
 		assertEquals(node1.toString(), "1");
 	}
 	
+	/**
+	 * Test para comprobar que el danio es actualiza tras el ataque
+	 */
 	@Test
 	public void hurtArticulationKillNotChildExact(){
 		//Vida del nodo y arma 10
@@ -172,6 +223,9 @@ public class ArticulationTest {
 		assertEquals(node7.hurt(weapon), 0);
 	}
 	
+	/**
+	 * Test para comprobar que el danio es actualiza tras el ataque
+	 */
 	@Test
 	public void hurtArticulationKillMoreValueNotChild(){
 		//Vida del nodo 10 y arma 15
@@ -179,6 +233,9 @@ public class ArticulationTest {
 		assertEquals(node7.hurt(weapon), 5);
 	}
 	
+	/**
+	 * Test para comprobar que la vida es actualizada tras el ataque
+	 */
 	@Test
 	public void hurtArticulationAliveNotChild(){
 		//Vida del nodo 10 y arma 5
@@ -187,6 +244,9 @@ public class ArticulationTest {
 		assertEquals(node7.getLife(), 5);
 	}
 	
+	/**
+	 * Test para comprobar que la vida es actualizada tras el ataque
+	 */
 	@Test
 	public void hurtArticulationEverybodyAlive(){
 		// Node3 6 default art 
@@ -199,6 +259,9 @@ public class ArticulationTest {
 		assertEquals(node5.getLife(), 6);
 	}
 	
+	/**
+	 * Test para comprobar que la vida es actualizada tras el ataque
+	 */
 	@Test
 	public void hurtArticulationChildKillPropagation(){
 		// Node3 6 default art 
@@ -211,6 +274,9 @@ public class ArticulationTest {
 		assertEquals(node5.getLife(), 5);
 	}
 	
+	/**
+	 * Test para comprobar que el estado de vida tras el ataque
+	 */
 	@Test
 	public void hurtArticulationKillChildren(){
 		// Node3 6 default art 
@@ -223,6 +289,9 @@ public class ArticulationTest {
 		assertFalse(node5.isAlive());
 	}
 	
+	/**
+	 * Test para comprobar que el estado de vida tras el ataque
+	 */
 	@Test
 	public void hurtArticulationKillChildrenHurtParent(){
 		// Node3 6 default art 
@@ -235,6 +304,9 @@ public class ArticulationTest {
 		assertFalse(node5.isAlive());
 	}
 	
+	/**
+	 * Test para comprobar que el estado de vida tras el ataque
+	 */
 	@Test
 	public void hurtArticulationKillEverybody(){
 		// Node3 6 default art 
@@ -247,6 +319,9 @@ public class ArticulationTest {
 		assertFalse(node5.isAlive());
 	}
 	
+	/**
+	 * Test para comprobar que el estado de vida tras el ataque
+	 */
 	@Test
 	public void hurtArticulationKillEverybodyMoreValue(){
 		// Node3 6 default art 
@@ -259,6 +334,9 @@ public class ArticulationTest {
 		assertFalse(node5.isAlive());
 	}
 	
+	/**
+	 * Test para comprobar que el estado de vida tras el ataque
+	 */
 	@Test
 	public void hurtAndKillDeepLevel(){
 		// Node1 15 default art
@@ -275,6 +353,9 @@ public class ArticulationTest {
 		assertEquals(node3.getLife(), 3);
 	}
 	
+	/**
+	 * Test para comprobar que la puntuacion final es correcta
+	 */
 	@Test
 	public void getFinalScoreNotChild(){
 		//10 vida + 10 por estar vivo
@@ -285,6 +366,9 @@ public class ArticulationTest {
 		assertEquals(node6.getFinalScore(), 0);
 	}
 	
+	/**
+	 * Test para comprobar que la puntuacion final es correcta
+	 */
 	@Test
 	public void getFinalScoreChildren(){
 		// Node3 6 default art 
@@ -297,22 +381,34 @@ public class ArticulationTest {
 		assertEquals(node3.getFinalScore(), 16);
 	}
 	
+	/**
+	 * Test para comprobar que la puntuacion final es correcta
+	 */
 	@Test
 	public void getFinalScoreDeepChildren(){
 		assertEquals(node1.getFinalScore(), 88);
 	}
 	
+	/**
+	 * Test para comprobar que obtiene la vida de forma correcta
+	 */
 	@Test
 	public void getLife(){
 		int life = 5;
 		assertEquals(new Articulation(id7, life, strategy1).getLife(), life);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede establecer una vida negativa
+	 */
 	@Test(expected = InvalidLifeValueException.class)
 	public void setLifeNegative(){
 		node1.setLife(-10);
 	}
 	
+	/**
+	 * Test para comprobar que se establece de manera correcta la vida igual o mayor que 0
+	 */
 	@Test
 	public void setLifeZeroOrPositive(){
 		node1.setLife(0);
@@ -321,11 +417,17 @@ public class ArticulationTest {
 		assertEquals(node1.getLife(), 10);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede estrablecer una estrategia negativa
+	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void setNullLifeStrategy(){
 		node1.setLifeStrategy(null);
 	}
 	
+	/**
+	 * Test para comprobar que establece la estrategia de forma correcta
+	 */
 	@Test
 	public void setLifeStrategy(){
 		node6.setLifeStrategy(new ThresholdLife(10));
@@ -333,6 +435,9 @@ public class ArticulationTest {
 		assertThat(node6.getLife(), not(equalTo(8)));
 	}
 	
+	/**
+	 * Test para comprobar que obtiene la vida de forma correcta
+	 */
 	@Test
 	public void getPriceTest(){
 		assertEquals(this.node6.getLife(), 10);

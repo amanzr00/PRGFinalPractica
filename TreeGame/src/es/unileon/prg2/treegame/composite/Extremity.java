@@ -8,7 +8,7 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 /**
- * Extremidad elemento hoja del árbol de juego.
+ * Extremidad, elemento hoja del árbol de juego.
  * @author Alberto Manzano
  * @author Iván Montes
  * @author Pablo Díez
@@ -32,6 +32,7 @@ public class Extremity extends Node {
 	
 	/**
 	 * Constructor de la extremidad que recibe vida y estrategia de cálculo.
+	 * @param id del nodo
 	 * @param life la vida del nodo.
 	 * @param lifeStrategy la estrategia para calcular la vida.
 	 */

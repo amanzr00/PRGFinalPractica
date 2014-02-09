@@ -56,6 +56,10 @@ public class Weapon implements Valorize {
 		log.info("Poder del arma actualizado a " + power );
 	}
 	
+	/**
+	 * Permite obtener el coste del arma
+	 * @return el poder del arma porque el coste de esta es igual a su poder
+	 */
 	public int getPrice(){
 		return getPower();
 	}

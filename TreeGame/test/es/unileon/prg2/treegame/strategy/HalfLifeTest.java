@@ -8,6 +8,7 @@ import org.junit.Test;
 import es.unileon.prg2.treegame.helpers.Weapon;
 
 /**
+ * Test de la clase HalfLife
  * @author Alberto Manzano
  * @author Iván Montes
  * @author Pablo Díez

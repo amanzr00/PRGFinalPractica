@@ -31,7 +31,7 @@ public class Articulation extends Node {
 	 */
 	private LifeStrategy lifeStrategy;
 	/**
-	 * Nodos hijo del elemento articulaión.
+	 * Nodos hijos del elemento articulaión.
 	 */
 	private ArrayList<Node> nodes;
 	

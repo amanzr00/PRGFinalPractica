@@ -7,7 +7,7 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 /**
- * Escudo simple que protege con un valod de daño concreto.
+ * Escudo simple que protege con un valor de daño concreto.
  * @author Alberto Manzano
  * @author Iván Montes
  * @author Pablo Diez

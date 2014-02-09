@@ -14,6 +14,15 @@ import es.unileon.prg2.treegame.helpers.Credit;
 import es.unileon.prg2.treegame.strategy.DefaultLife;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
+/**
+ * Test de la clase CommandCreateStaticShield
+ * @author Alberto Manzano
+ * @author Ivan Montes
+ * @author Pablo Díez
+ * @author Andrea San Ramon
+ * @version 1.0
+ */
+
 public class CommandCreateStaticShieldTest {
 
 	private Handler newNodeId, parent;

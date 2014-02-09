@@ -16,7 +16,7 @@ import es.unileon.prg2.treegame.strategy.DefaultLife;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 /**
- * 
+ * Test de la clase CommandCreateArticulation
  * @author Alberto Manzano
  * @author Ivan Montes
  * @author Pablo Díez
@@ -50,6 +50,9 @@ public class CommandCreateArticulationTest {
 		this.node1.add(node2);
 	}
 	
+	/**
+	 * Test del constructor
+	 */
 	@Test
 	public void constructorTest(){
 		

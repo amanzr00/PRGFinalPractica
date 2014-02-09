@@ -5,6 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test de la clase NodeHandler
+ * @author Alberto Manzano
+ * @author Ivan Montes
+ * @author Pablo Díez
+ * @author Andrea San Ramon
+ * @version 1.0
+ */
 public class NodeHandlerTest {
 
 	private NodeHandler number1, number2, number3;

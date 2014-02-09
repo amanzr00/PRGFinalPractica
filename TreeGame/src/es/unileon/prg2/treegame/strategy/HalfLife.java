@@ -22,9 +22,10 @@ public class HalfLife extends LifeStrategy{
 	 * Log
 	 */
 	static Logger log = Logger.getLogger(HalfLife.class);
+	
 	/**
 	 * Constructor
-	 * @param life
+	 * @param life Vida del nodo
 	 */
 	public HalfLife(int life){
 		

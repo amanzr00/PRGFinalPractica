@@ -15,6 +15,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
+ * Test de la clase Weapon
  * @author Alberto Manzano
  * @author Ivan Montes
  * @author Pablo Díez

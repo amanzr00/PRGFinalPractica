@@ -77,7 +77,7 @@ public abstract class Node implements Valorize {
 	public abstract int hurt(Weapon weapon);
 	
 	/**
-	 * Permite obtener la puntuación final de el nodo + suma de los hijos.
+	 * Permite obtener la puntuación final del nodo + suma de los hijos.
 	 * @return Devuelve la puntuación final de acuerdo con el recuento permitido. vida + 10 
 	 * si el nodo está vivo.
 	 */

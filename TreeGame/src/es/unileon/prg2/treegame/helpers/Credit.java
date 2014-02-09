@@ -13,30 +13,30 @@ import es.unileon.prg2.treegame.exceptions.InvalidCreditValueException;
 public class Credit {
 
 	/**
-	 * 
+	 * Credito total del jugador
 	 */
 	private int totalCredit;
 	
 	/**
 	 * Constructor
-	 * @param totalCredit
+	 * @param totalCredit Credito total
 	 */
 	public Credit(int totalCredit){
 		this.totalCredit = totalCredit;
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Permite obtener el credito total
+	 * @return Credito total
 	 */
 	public int getCredit(){
 		return this.totalCredit;
 	}
 	
 	/**
-	 * 
-	 * @param cost
-	 * @throws InvalidCreditValueException
+	 * Devuelve el credito final actualizado tras restar el precio de un objeto con valor
+	 * @param object Precio del objeto 
+	 * @throws InvalidCreditValueException Si el precio del objeto es mayor que el credito total
 	 */
 	public void buyObject(Valorize object) throws InvalidCreditValueException{
 		if (object.getPrice() > totalCredit) throw new InvalidCreditValueException ("El credito total ha de ser mayor que el precio del objeto");

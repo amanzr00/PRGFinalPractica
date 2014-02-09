@@ -17,6 +17,7 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
 import es.unileon.prg2.treegame.strategy.ThresholdLife;
 
 /**
+ * Test de la clase SimpleShield
  * @author Alberto Manzano
  * @author Iván Montes
  * @author Pablo Diez
@@ -68,7 +69,9 @@ public class SimpleShieldTest {
 		this.node3.add(node5);
 	}
 
-	
+	/**
+	 * Test del constructor
+	 */
 	@Test
 	public void constructorTest(){
 		
@@ -79,7 +82,9 @@ public class SimpleShieldTest {
 		assertEquals(this.resistance1, 10);
 	}
 
-	
+	/**
+	 * Test fallido del constructor
+	 */
 	@Test
 	public void failConstructorTest(){
 		
@@ -87,16 +92,25 @@ public class SimpleShieldTest {
 		assertNull(simpleShield);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede establecer una resistencia negativa
+	 */
 	@Test(expected = InvalidResistanceValueException.class)
 	public void constructorExceptionNegativeResistance(){
 		new SimpleShield(node1, -3);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede establecer una resistencia igual a 0
+	 */
 	@Test(expected = InvalidResistanceValueException.class)
 	public void constructorExceptionZeroResistance(){
 		new SimpleShield(node1, 0);
 	}
-
+	
+	/**
+	 * Test para comprobar que el danio tras un ataque es correctamente actualizado
+	 */
 	@Test
 	public void destructionOfSimpleShieldTwoShoots(){
 		// Atacamos simpleShield1 (resistencia 10) con weapon2 (poder 6). Poder resultante del arma: 0
@@ -106,6 +120,9 @@ public class SimpleShieldTest {
 		assertEquals(this.simpleShield1.hurt(weapon1), 2);
 	}
 	
+	/**
+	 * Test para comprobar que el danio tras un ataque es correctamente actualizado
+	 */
 	@Test
 	public void hurtSimpleShield(){
 		SimpleShield simpleShield = new SimpleShield(this.node2, 5);
@@ -115,6 +132,9 @@ public class SimpleShieldTest {
 			
 	}
 	
+	/**
+	 * Test para comprobar que el precio del escudo es igual a su resistencia
+	 */
 	@Test
 	public void getPriceTest() {
 		

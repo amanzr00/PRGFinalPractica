@@ -19,6 +19,15 @@ import es.unileon.prg2.treegame.strategy.HalfLife;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 import es.unileon.prg2.treegame.strategy.ThresholdLife;
 
+/**
+ * Test de la clase Credit
+ * @author Alberto Manzano
+ * @author Ivan Montes
+ * @author Pablo Díez
+ * @author Andrea San Ramon
+ * @version 1.0
+ */
+
 public class CreditTest {
 	private Weapon weapon1, weapon2, weapon3;
 	private Handler id1, id2, id3, id4, id5;
@@ -132,24 +141,36 @@ public class CreditTest {
 		assertEquals(this.credit1.getCredit(), 0);		
 	}
 	
+	/**
+	 * Test para comprobar que no se puede crear un arma que tenga un valor mayor al credito total
+	 */
 	@Test(expected = InvalidCreditValueException.class)
 	public void testWeaponGreaterThanCredit(){
 		Credit credit2 = new Credit(2);
 		credit2.buyObject(weapon3);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede crear una articulacion que tenga un valor mayor al credito total
+	 */
 	@Test(expected = InvalidCreditValueException.class)
 	public void testArticulationGreaterThanCredit(){
 		Credit credit2 = new Credit(2);
 		credit2.buyObject(node1);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede crear una extremidad que tenga un valor mayor al credito total
+	 */
 	@Test(expected = InvalidCreditValueException.class)
 	public void testExtremityGreaterThanCredit(){
 		Credit credit2 = new Credit(2);
 		credit2.buyObject(node5);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede asignar un escudo que tenga un valor mayor al credito total
+	 */
 	@Test(expected = InvalidCreditValueException.class)
 	public void testShieldGreaterThanCredit(){
 		Credit credit2 = new Credit(2);
@@ -158,6 +179,9 @@ public class CreditTest {
 		credit2.buyObject(specialshield1);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede asignar una estrategia HalfLife que tenga un valor mayor al credito total
+	 */
 	@Test(expected = InvalidCreditValueException.class)
 	public void testHalfLifeGreaterThanCredit(){
 		Credit credit2 = new Credit(2);
@@ -166,6 +190,9 @@ public class CreditTest {
 		credit2.buyObject(halflife1);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede asignar una estrategia ThresholdLife que tenga un valor mayor al credito total
+	 */
 	@Test(expected = InvalidCreditValueException.class)
 	public void testThresholdLifeGreaterThanCredit(){
 		Credit credit2 = new Credit(2);

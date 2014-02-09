@@ -15,7 +15,9 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 import es.unileon.prg2.treegame.strategy.DefaultLife;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 import es.unileon.prg2.treegame.strategy.ThresholdLife;
+
 /**
+ * Test de la clase StaticShield
  * @author Alberto Manzano
  * @author Iván Montes
  * @author Pablo Díez
@@ -65,6 +67,9 @@ public class StaticShieldTest {
 		this.node3.add(node5);
 	}
 	
+	/**
+	 * Test del constructor
+	 */
 	@Test
 	public void constructorTest(){
 		StaticShield staticShield = new StaticShield(node1, 2);
@@ -73,16 +78,25 @@ public class StaticShieldTest {
 		assertEquals(staticShield.getPrice()/10, 2);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede establecer un valor fijo negativo
+	 */
 	@Test(expected = InvalidResistanceValueException.class)
 	public void constructorExceptionNegativeResistance(){
 		new StaticShield (node1, -1);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede establecer un valor fijo igual a 0
+	 */
 	@Test(expected = InvalidResistanceValueException.class)
 	public void constructorExceptionZeroResistance(){
 		new StaticShield (node1, 0);
 	}
 	
+	/**
+	 * Test para comprobar que el danio tras un ataque es correctamente actualizado
+	 */
 	@Test
 	public void testHurtStaticShield() {
 		
@@ -91,6 +105,9 @@ public class StaticShieldTest {
 		
 	}
 	
+	/**
+	 * Test para comprobar que el danio tras un ataque es correctamente actualizado
+	 */
 	@Test
 	public void nodeIndestructibleWithSpecialShieldToShootBelow10(){
 		// node 5 (vida 6) con staticShield de 10
@@ -105,6 +122,9 @@ public class StaticShieldTest {
 		assertEquals(node5.getLife(), 6);
 	}
 	
+	/**
+	 * Test para comprobar que el danio tras un ataque es correctamente actualizado
+	 */
 	@Test
 	public void nodeVunerableToShootAbove10(){
 		// node5 (vida 6) con staticShiel de 10
@@ -119,6 +139,9 @@ public class StaticShieldTest {
 		assertEquals(staticShield.hurt(weapon3), 5);
 	}
 	
+	/**
+	 * Test para comprobar que el precio del escudo es el del valor fijo multiplicado por 10
+	 */
 	@Test
 	public void testGetPrice(){
 		assertEquals(this.staticShield1.getPrice(), 20);

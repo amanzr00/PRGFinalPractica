@@ -15,6 +15,15 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 import es.unileon.prg2.treegame.strategy.DefaultLife;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
+/**
+ * Test de la clase CommandAttack
+ * @author Alberto Manzano
+ * @author Ivan Montes
+ * @author Pablo Díez
+ * @author Andrea San Ramon
+ * @version 1.0
+ */
+
 public class CommandAttackTest {
 
 	private Weapon weapon1, weapon3;

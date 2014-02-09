@@ -17,6 +17,7 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
 import es.unileon.prg2.treegame.strategy.ThresholdLife;
 
 /**
+ * Test de la clase SpecialShieldTest
  * @author Alberto Manzano.
  * @author Iván Montes.
  * @author Pablo Diez.
@@ -69,7 +70,10 @@ public class SpecialShieldTest {
 		this.node3.add(node5);
 		
 	}
-
+	
+	/**
+	 * Test del constructor
+	 */
 	@Test
 	public void constructorTest(){
 		
@@ -77,6 +81,9 @@ public class SpecialShieldTest {
 		assertNotNull(specialShield);
 	}
 	
+	/**
+	 * Test fallido del constructor
+	 */
 	@Test
 	public void failConstructorTest(){
 		
@@ -84,16 +91,25 @@ public class SpecialShieldTest {
 		assertNull(specialShield);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede establecer un numero de ataques negativo
+	 */
 	@Test(expected = InvalidResistanceValueException.class)
 	public void constructorExceptionNegativeResistance(){
 		new SpecialShield(node1, -3);
 	}
 	
+	/**
+	 * Test para comprobar que no se puede establecer un numero de ataques igual a 0
+	 */
 	@Test(expected = InvalidResistanceValueException.class)
 	public void constructorExceptionZeroResistance(){
 		new SimpleShield(node1, 0);
 	}
 	
+	/**
+	 * Test para comprobar que el danio tras un ataque es correctamente actualizado
+	 */
 	@Test
 	public void destructionOfSpecialShieldTwoShoots() {
 		
@@ -104,12 +120,18 @@ public class SpecialShieldTest {
 		assertEquals(this.specialShield1.hurt(weapon2), 5);
 	}	
 	
+	/**
+	 * Test para comprobar que el danio tras un ataque es correctamente actualizado
+	 */
 	@Test
 	public void hurtSpecialShiedlTest(){
 		
 		assertEquals(this.node5.hurt(weapon2), 0);
 	}
 	
+	/**
+	 * Test para comprobar que el precio del escudo es el numero de impactos multiplicado por 10
+	 */
 	@Test
 	public void getPriceTest(){
 		assertEquals(specialShield1.getPrice(), 10);

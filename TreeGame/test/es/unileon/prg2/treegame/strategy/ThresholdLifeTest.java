@@ -9,6 +9,7 @@ import org.junit.Test;
 import es.unileon.prg2.treegame.helpers.Weapon;
 
 /**
+ * Test de la clase ThresholdLife
  * @author Alberto Manzano
  * @author Iván Montes
  * @author Pablo Díez

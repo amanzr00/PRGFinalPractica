@@ -8,8 +8,8 @@ import es.unileon.prg2.treegame.helpers.Weapon;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
 /**
- * Escudo especial que soporta un determinado número de ataques y resta la mitad del
- * poder del arma.
+ * Escudo especial que soporta un determinado número de ataques y resta la mitad de su
+ * poder al arma.
  * @author Alberto Manzano.
  * @author Iván Montes.
  * @author Pablo Diez.

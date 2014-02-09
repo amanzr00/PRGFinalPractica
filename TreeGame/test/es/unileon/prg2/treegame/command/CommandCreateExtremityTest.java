@@ -12,6 +12,15 @@ import es.unileon.prg2.treegame.helpers.Credit;
 import es.unileon.prg2.treegame.strategy.DefaultLife;
 import es.unileon.prg2.treegame.strategy.LifeStrategy;
 
+/**
+ * Test de la clase CommandCreateExtremity
+ * @author Alberto Manzano
+ * @author Ivan Montes
+ * @author Pablo Díez
+ * @author Andrea San Ramon
+ * @version 1.0
+ */
+
 public class CommandCreateExtremityTest {
 
 	private Handler newNodeId, parent, parent1;
@@ -41,6 +50,9 @@ public class CommandCreateExtremityTest {
 		this.node1.add(node2);
 	}
 	
+	/**
+	 * Test del constructor
+	 */
 	@Test
 	public void constructorTest(){
 		
