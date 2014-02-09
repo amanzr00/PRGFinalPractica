@@ -19,6 +19,7 @@ public class CommandCreateHalfLifeTest {
 	private Node nodeTarget;
 	private LifeStrategy halfLife;
 	private Credit credit;
+	private CommandCreateHalfLife newCreated;
 
 	@Before
 	public void setUp() throws Exception {
@@ -30,16 +31,34 @@ public class CommandCreateHalfLifeTest {
 		
 	}
 	
+	/**
+	 * Test para el constructor
+	 */
 	@Test
 	public void constructorTest(){
+		
 		CommandCreateHalfLife commandCreateHalfLife = new CommandCreateHalfLife(nodeTarget, halfLife, credit);
 		assertNotNull(commandCreateHalfLife);
 		
 	}
 	
+	/**
+	 * Test para comprobar que se necesita un nodo existente para aplicar la estrategia
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void executeExceptionNodeNotExist() {
+		
+		this.newCreated = new CommandCreateHalfLife(null, halfLife, credit);
+		this.newCreated.execute();
+		
+	}
+	
+	/**
+	 * Test para comprobar que se puede crear la estrategia HalfLife 
+	 */
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void executeTest() {
+		
 	}
 
 }
