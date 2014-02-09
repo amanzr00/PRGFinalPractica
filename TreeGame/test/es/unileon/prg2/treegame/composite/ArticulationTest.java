@@ -158,6 +158,7 @@ public class ArticulationTest {
 		assertNull(node1.search(id8));
 	}
 	
+	
 	@Test
 	public void toStringTest(){
 		assertEquals(node1.toString(), id1.toString());
@@ -331,4 +332,14 @@ public class ArticulationTest {
 		node6.hurt(new Weapon(2));
 		assertThat(node6.getLife(), not(equalTo(8)));
 	}
+	
+	@Test
+	public void getPriceTest(){
+		assertEquals(this.node6.getLife(), 10);
+		assertEquals(this.node6.getPrice(), 10);
+		assertEquals(this.node5.getLife(), 6);
+		assertEquals(this.node5.getPrice(), 6);
+	}
+	
+	
 }

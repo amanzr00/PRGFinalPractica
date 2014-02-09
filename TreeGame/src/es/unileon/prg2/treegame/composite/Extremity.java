@@ -115,7 +115,7 @@ public class Extremity extends Node {
 			log.error("Se ha de establecer una estrategia por nodo");
 			throw new IllegalArgumentException("La estrategia de la vida no puede ser nula.");
 		}
-		log.info("Estrategia de tipo " + this.lifeStrategy.toString() + "establecida");
+		log.info("Estrategia de tipo " + lifeStrategy.toString() + "establecida");
 		this.lifeStrategy = lifeStrategy;
 	}
 

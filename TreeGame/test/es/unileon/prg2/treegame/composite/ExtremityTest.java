@@ -171,4 +171,15 @@ public class ExtremityTest {
 		setupExtremity.hurt(new Weapon(2));
 		assertThat(setupExtremity.getLife(), not(equalTo(2)));
 	}
+	
+	@Test
+	public void getPriceTest(){
+		
+		Node node = new Extremity (this.id1, 10, this.strategy);
+		assertEquals(node.getLife(), 10);
+		assertEquals(node.getPrice(), 10);
+		Node node2 = new Extremity (this.id2, 20, this.strategy);
+		assertEquals(node2.getLife(), 20);
+		assertEquals(node2.getPrice(), 20);
+	}
 }

@@ -180,7 +180,7 @@ public class WeaponTest {
 		assertEquals(this.node1.getFinalScore(), 88);
 		node1.hurt(weapon6);
 		assertEquals(this.node1.getFinalScore(), 0);
-		assertEquals(weapon6.getPower(), 624);
+		assertEquals(weapon6.getPower(), 62);
 	}
 	
 }
