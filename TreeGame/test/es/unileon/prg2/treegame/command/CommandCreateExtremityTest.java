@@ -1,11 +1,8 @@
 package es.unileon.prg2.treegame.command;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-
 import es.unileon.prg2.treegame.composite.Articulation;
 import es.unileon.prg2.treegame.composite.Extremity;
 import es.unileon.prg2.treegame.composite.Node;
@@ -28,6 +25,7 @@ public class CommandCreateExtremityTest {
 		
 		this.parent = new NodeHandler(1);
 		this.newNodeId = new NodeHandler(2);
+		
 		
 		this.strategy = new DefaultLife();
 
@@ -81,7 +79,16 @@ public class CommandCreateExtremityTest {
 	 */
 	@Test
 	public void executeTest(){
+		// node1
+			//node2
+			// node3 (aniadido)
+		Handler newNode = new NodeHandler (3);
 		
-	
+		CommandCreateExtremity newComand = new CommandCreateExtremity (this.credit, this.node1, newNode, this.parent, 10);
+		newComand.execute();
+		
+		assertEquals(credit.getCredit(), 90);
+		assertNotNull(this.node1.search(newNode));
+		
 	}
 }
