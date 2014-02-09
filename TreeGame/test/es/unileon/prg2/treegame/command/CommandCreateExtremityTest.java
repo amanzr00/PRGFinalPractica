@@ -81,7 +81,7 @@ public class CommandCreateExtremityTest {
 	public void executeTest(){
 		// node1
 			//node2
-			// node3 (aniadido)
+			// node3 (añadido)
 		Handler newNode = new NodeHandler (3);
 		
 		CommandCreateExtremity newComand = new CommandCreateExtremity (this.credit, this.node1, newNode, this.parent, 10);
