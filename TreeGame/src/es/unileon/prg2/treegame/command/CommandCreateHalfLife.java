@@ -18,6 +18,7 @@ public class CommandCreateHalfLife implements Command {
 	private Node tree, nodeTarget;
 	private LifeStrategy halfLife;
 	private Credit credit;
+	
 	/**
 	 * Constructor
 	 * @param nodeTarget
@@ -30,6 +31,7 @@ public class CommandCreateHalfLife implements Command {
 		this.halfLife = halfLife;
 		this.credit = credit;
 	}
+	
 	@Override
 	public void execute(){
 		if(tree.search(nodeTarget.getId()) == null)

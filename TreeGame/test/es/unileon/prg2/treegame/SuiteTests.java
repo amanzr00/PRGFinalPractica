@@ -11,6 +11,7 @@ import es.unileon.prg2.treegame.command.CommandCreateHalfLifeTest;
 import es.unileon.prg2.treegame.command.CommandCreateSimpleShieldTest;
 import es.unileon.prg2.treegame.command.CommandCreateSpecialShieldTest;
 import es.unileon.prg2.treegame.command.CommandCreateStaticShieldTest;
+import es.unileon.prg2.treegame.command.CommandCreateThresholdLifeTest;
 import es.unileon.prg2.treegame.composite.ArticulationTest;
 import es.unileon.prg2.treegame.composite.ExtremityTest;
 import es.unileon.prg2.treegame.composite.shields.SimpleShieldTest;
@@ -42,7 +43,7 @@ import es.unileon.prg2.treegame.strategy.ThresholdLifeTest;
 	CommandCreateArticulationTest.class, CommandCreateExtremityTest.class,
 	CreditTest.class, CommandCreateHalfLifeTest.class, 
 	CommandCreateSimpleShieldTest.class, CommandCreateSpecialShieldTest.class,
-	CommandCreateStaticShieldTest.class,
+	CommandCreateStaticShieldTest.class, CommandCreateThresholdLifeTest.class,
 	})
 
 public class SuiteTests {

@@ -13,7 +13,7 @@ import es.unileon.prg2.treegame.strategy.LifeStrategy;
  */
 public class CommandCreateThresholdLife implements Command {
 
-	private Node nodeTarget;
+	private Node tree, nodeTarget;
 	private LifeStrategy thresholdLife;
 	private Credit credit;
 	
@@ -23,18 +23,17 @@ public class CommandCreateThresholdLife implements Command {
 	 * @param thresholdLife
 	 * @param credit
 	 */
-	public CommandCreateThresholdLife(Node nodeTarget, LifeStrategy thresholdLife, Credit credit){
+	public CommandCreateThresholdLife(Node tree, Node nodeTarget, LifeStrategy thresholdLife, Credit credit){
+		this.tree = tree;
 		this.nodeTarget = nodeTarget;
 		this.thresholdLife = thresholdLife;
 		this.credit = credit;
-		
 	}
+	
 	@Override
 	public void execute(){
-		if(nodeTarget.search(nodeTarget.getId()) == null)
+		if(tree.search(nodeTarget.getId()) == null)
 			throw new IllegalArgumentException("Se ha de pasar un nodo existenete al que aplicarle la estrategia.");
-		
-		
 		nodeTarget.setLifeStrategy(thresholdLife);
 		credit.buyObject(nodeTarget);
 	
