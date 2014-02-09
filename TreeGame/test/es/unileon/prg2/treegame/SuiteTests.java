@@ -8,6 +8,9 @@ import org.junit.runners.Suite;
 import es.unileon.prg2.treegame.command.CommandCreateArticulationTest;
 import es.unileon.prg2.treegame.command.CommandCreateExtremityTest;
 import es.unileon.prg2.treegame.command.CommandCreateHalfLifeTest;
+import es.unileon.prg2.treegame.command.CommandCreateSimpleShieldTest;
+import es.unileon.prg2.treegame.command.CommandCreateSpecialShieldTest;
+import es.unileon.prg2.treegame.command.CommandCreateStaticShieldTest;
 import es.unileon.prg2.treegame.composite.ArticulationTest;
 import es.unileon.prg2.treegame.composite.ExtremityTest;
 import es.unileon.prg2.treegame.composite.shields.SimpleShieldTest;
@@ -37,7 +40,9 @@ import es.unileon.prg2.treegame.strategy.ThresholdLifeTest;
 	WeaponTest.class, DefaultLifeTest.class, 
 	ThresholdLifeTest.class, HalfLifeTest.class, 
 	CommandCreateArticulationTest.class, CommandCreateExtremityTest.class,
-	CreditTest.class, CommandCreateHalfLifeTest.class,
+	CreditTest.class, CommandCreateHalfLifeTest.class, 
+	CommandCreateSimpleShieldTest.class, CommandCreateSpecialShieldTest.class,
+	CommandCreateStaticShieldTest.class,
 	})
 
 public class SuiteTests {
